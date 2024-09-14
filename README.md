@@ -1,5 +1,5 @@
 <h1>Naresh Kumar</h1>
-<h2>Senior Software Development Engineer (Sr.SDE)</h2>
+<h2>Senior Software Development Engineer (Sr. SDE)</h2>
 
 <h4>Computer Fundamentals:</h4><p>Operating Systems, Database Management, Computer Networks etc</p>
 <h4>Programming Languages Constructs:</h4><p>C, C++, Java, Python, C#, Rust, Go, DSA, Competitive Programming etc</p>
