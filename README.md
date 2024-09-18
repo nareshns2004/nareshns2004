@@ -5,6 +5,6 @@
 <h4>Programming Languages Constructs:</h4><p>C, C++, Java, Python, C#, Rust, Go, JavaScript, DSA, Competitive Programming etc</p>
 <h4>Software Design:</h4><p>Low Level Design (OOPS Design), High Level Design (System Design) etc</p>
 <h4>Technology Stack Frameworks:</h4><p>High Performance Computing, FullStack Development, Cyber Security, Artificial Intelligence etc</p>
-<h4>Open Source Contributions:</h4><p>Problem Solving (Codebases, Features, Products, Systems) etc</p>
-<h4>Behavioral Leadership:</h4><p>Creativity, Communication, Collaboration, Management, Empathy, Vision etc</p>
+<h4>Open Source Contributions:</h4><p>Real Life Problem Solving & Scalable (Codebases, Products, Systems) etc</p>
+<h4>Behavioral Leadership:</h4><p>Real Life Problem Solving & Scalable (Ideations, Innovations, Solutions) etc</p>
 
