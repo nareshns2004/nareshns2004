@@ -6,5 +6,5 @@
 <h4>Software Design Architecture:</h4><p>Low Level Design (OOPS Design), High Level Design (System Design) etc</p>
 <h4>Technology Stack Frameworks:</h4><p>High Performance Computing, FullStack Development, Cyber Security, Artificial Intelligence etc</p>
 <h4>Open Source Contributions:</h4><p>Real Life - Problem Solving & Scalable (Codebases, Products, Systems) etc</p>
-<h4>Behavioral Leadership:</h4><p>Real Life - Issues & Solutions (Instinctual, Psychological, Behavioral) etc</p>
+<h4>Behavioral Leadership:</h4><p>Real Life - Issues & Solutions (Instinctual, Psychological, Organizational) etc</p>
 
