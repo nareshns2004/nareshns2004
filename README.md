@@ -1,4 +1,4 @@
-# 💫 About Me:
+# 💫 Naresh Kumar:
 Senior Software Development Engineer<br>Working on High Performance Computers<br>FullStack Developer {MERN Stack}<br>Problem Solving & Scalable Systems for Real Life Challenges
 
 
