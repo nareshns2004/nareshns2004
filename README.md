@@ -1,5 +1,5 @@
 # 💫 About Me:
-Senior Software Development Engineer<br>Working on HIgh Performance Computers<br>FullStack Developer {MERN Stack}<br>Problem Solving & Scalable Systems for Real Life Challenges
+Senior Software Development Engineer<br>Working on High Performance Computers<br>FullStack Developer {MERN Stack}<br>Problem Solving & Scalable Systems for Real Life Challenges
 
 
 ## 🌐 Socials:
