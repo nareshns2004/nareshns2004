@@ -2,7 +2,7 @@
 Senior Software Development Engineer<br>Working on High Performance Computers<br>FullStack Developer {MERN Stack}<br>Problem Solving & Scalable Systems for Real Life Challenges
 
 
-## 🌐 Socials:
+## 🌐 Connect:
 [![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/nareshns2004) [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://facebook.com/nareshns2004) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/nareshns2004) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/nareshns2004) [![Stack Overflow](https://img.shields.io/badge/-Stackoverflow-FE7A16?logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/24790922) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/naresh_swe_24) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@nareshns2004) 
 
 # 💻 Software Development:
@@ -19,12 +19,12 @@ Senior Software Development Engineer<br>Working on High Performance Computers<br
 
 <h2><b>Software Development</b></h2>
 
-<h4><b>Computer Fundamentals:</b></h4><p>Operating Systems, Database Management Systems, Computer Networks etc</p>
-<h4><b>Programming Languages Constructs:</b></h4><p>C, C++, Java, Python, C#, Rust, Go, JavaScript, Data Structures Algorithms, Competitive Programming etc</p>
-<h4><b>Software Design Architecture:</b></h4><p>Low Level Design (OOPS Design), High Level Design (System Design) etc</p>
-<h4><b>Technology Stack Frameworks:</b></h4><p>High Performance Computing, FullStack Development, Cyber Security, Artificial Intelligence etc</p>
-<h4><b>Open Source Contributions:</b></h4><p>Real Life - Problem Solving & Scalable (Codebases, Products, Systems) etc</p>
-<h4><b>Behavioral Leadership:</b></h4><p>Real Life - Issues & Solutions (Instinctual, Psychological, Organizational) etc</p>
+<p><h4><b>Computer Fundamentals: </b></h4>Operating Systems, Database Management Systems, Computer Networks etc</p>
+<p><h4><b>Programming Languages Constructs: </b></h4>C, C++, Java, Python, C#, Rust, Go, JavaScript, Data Structures Algorithms, Competitive Programming etc</p>
+<p><h4><b>Software Design Architecture: </b></h4>Low Level Design (OOPS Design), High Level Design (System Design) etc</p>
+<p><h4><b>Technology Stack Frameworks: </b></h4>High Performance Computing, FullStack Development, Cyber Security, Artificial Intelligence etc</p>
+<p><h4><b>Open Source Contributions: </b></h4>Real Life - Problem Solving & Scalable (Codebases, Products, Systems) etc</p>
+<p><h4><b>Behavioral Leadership: </b></h4>Real Life - Issues & Solutions (Instinctual, Psychological, Organizational) etc</p>
 
 # 📊 GitHub Stats:
 ![](https://github-readme-stats.vercel.app/api?username=nareshns2004&theme=dark&hide_border=false&include_all_commits=true&count_private=false)<br/>
