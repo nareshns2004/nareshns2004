@@ -17,8 +17,7 @@ Senior Software Development Engineer<br>Working on High Performance Computers<br
 <a href="https://www.hackerearth.com/@nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerearth.svg" alt="nareshns2004" height="30" width="40" /></a>
 </p>
 
-<h1><b>Software Development:</b></h1>
-
+# 💻 Software Development:
 <p><h3><b>Computer Fundamentals: </b></h3>Operating Systems, Database Management Systems, Computer Networks etc</p>
 <p><h3><b>Programming Languages Constructs: </b></h3>C, C++, Java, Python, C#, Rust, Go, JavaScript, Data Structures Algorithms, Competitive Programming etc</p>
 <p><h3><b>Software Design Architecture: </b></h3>Low Level Design (OOPS Design), High Level Design (System Design) etc</p>
