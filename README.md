@@ -23,7 +23,7 @@ Senior Software Development Engineer<br>Working on High Performance Computers<br
 <p><h3><b>Software Design Architecture: </b></h3>Low Level Design (OOPS Design), High Level Design (System Design) etc</p>
 <p><h3><b>Technology Stack Frameworks: </b></h3>High Performance Computing, FullStack Development, Cyber Security, Artificial Intelligence etc</p>
 <p><h3><b>Open Source Contributions: </b></h3>Real Life - Problem Solving & Scalable (Codebases, Products, Systems) etc</p>
-<p><h3><b>Behavioral Leadership: </b></h3>Real Life - Issues & Solutions (Instinctual, Psychological, Organizational) etc</p>
+<p><h3><b>Behavioral Leadership: </b></h3>Real Life - Questions & Answers (Instinctual, Psychological, Organizational) etc</p>
 
 # 📊 GitHub Stats:
 ![](https://github-readme-stats.vercel.app/api?username=nareshns2004&theme=dark&hide_border=false&include_all_commits=true&count_private=false)<br/>
