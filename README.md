@@ -20,7 +20,7 @@ Senior Software Development Engineer<br>Working on High Performance Computers<br
 <p><h3><b>Computer Fundamentals: </b></h3>Operating Systems, Database Management Systems, Computer Networks etc</p>
 <p><h3><b>Programming Languages Constructs: </b></h3>C, C++, Java, Python, C#, Rust, Go, JavaScript, Data Structures Algorithms, Competitive Programming etc</p>
 <p><h3><b>Software Design Architecture: </b></h3>Low Level Design (OOPS Design), High Level Design (System Design) etc</p>
-<p><h3><b>Technology Stack Frameworks: </b></h3>High Performance Computing, FullStack Development, Cyber Security, Artificial Intelligence etc</p>
+<p><h3><b>Technology Stack Frameworks: </b></h3>High Performance Computing, FullStack Development, Artificial Intelligence, Cyber Security etc</p>
 <p><h3><b>Open Source Contributions: </b></h3>Problem Solving & Scalable Solution (Codebases, Products, Systems) etc</p>
 <p><h3><b>Behavioral Leadership: </b></h3>Questions & Answers (Instinctual, Psychological, Organizational) etc</p>
 
