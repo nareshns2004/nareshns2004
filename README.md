@@ -1,5 +1,5 @@
 # 💫 Naresh Kumar
-Senior Software Development Engineer<br>FullStack Web Development<br>Working on High Performance Computers<br>Computer Architecture Operating Systems<br>LLMs as Operating Systems MemGPT (Letta) Long Memory for AI Agents
+<b>Senior Software Development Engineer</b><br><b>FullStack Web Development</b><br><b>Working on High Performance Computers</b><br><b>Computer Architecture Operating Systems</b><br><b>LLMs as Operating Systems MemGPT (Letta) Long Memory for AI Agents</b>
 
 ## 🌐 Connect
 [![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/nareshns2004) [![Stack Overflow](https://img.shields.io/badge/-Stackoverflow-FE7A16?logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/24790922) [![Medium](https://img.shields.io/badge/Medium-12100E?logo=medium&logoColor=white)](https://medium.com/@nareshns2004) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/nareshns2004) [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://facebook.com/nareshns2004) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/nareshns2004) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@nareshns2004) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/naresh_swe_24) 
@@ -45,22 +45,3 @@ Senior Software Development Engineer<br>FullStack Web Development<br>Working on 
 <p><h3><b>Technology Stack Frameworks </b></h3>High Performance Computing, FullStack Development, Artificial Intelligence, Cyber Security etc</p>
 <p><h3><b>Open Source Contributions </b></h3>Problem Solving & Scalable Solution (Codebases, Products, Systems) etc</p>
 <p><h3><b>Behavioral Leadership </b></h3>Questions & Answers (Instinctual, Psychological, Organizational) etc</p>
-
-# 📊 GitHub Stats
-![](https://github-readme-stats.vercel.app/api?username=nareshns2004&theme=dark&hide_border=false&include_all_commits=true&count_private=false)<br/>
-![](https://github-readme-streak-stats.herokuapp.com/?user=nareshns2004&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=nareshns2004&theme=dark&hide_border=false&include_all_commits=true&count_private=false&layout=compact)
-
-## 🏆 GitHub Trophies
-![](https://github-profile-trophy.vercel.app/?username=nareshns2004&theme=merko&no-frame=false&no-bg=false&margin-w=4)
-
----
-[![](https://visitcount.itsvg.in/api?id=nareshns2004&icon=0&color=6)](https://visitcount.itsvg.in)
-
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/nareshns2004/nareshns2004/output/github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/nareshns2004/nareshns2004/output/github-snake.svg" />
-  <img alt="github-snake" src="https://raw.githubusercontent.com/nareshns2004/nareshns2004/output/github-snake.svg" />
-</picture>
