@@ -39,7 +39,7 @@
 
 # 💻 Software Development
 <p><h3><b>Computer Fundamentals </b></h3>Operating Systems, Database Management Systems, Computer Networks etc</p>
-<p><h3><b>Programming Languages Constructs </b></h3>C, C++, Java, Python, C#, Rust, Go, JavaScript, Data Structures Algorithms, Competitive Programming etc</p>
+<p><h3><b>Programming Languages Constructs </b></h3>C, C++, Java, Python, JavaScript, Data Structures Algorithms, Competitive Programming etc</p>
 <p><h3><b>Software Design Architecture </b></h3>Low Level Design (OOPS Design), High Level Design (System Design) etc</p>
 <p><h3><b>Technology Stack Frameworks </b></h3>High Performance Computing, FullStack Development, Artificial Intelligence, Cyber Security etc</p>
 <p><h3><b>Open Source Contributions </b></h3>Problem Solving & Scalable Solution (Codebases, Products, Systems) etc</p>
