@@ -46,5 +46,3 @@
 <p><h3><b>Technology Stack Frameworks </b></h3>High Performance Computing, FullStack Development, Artificial Intelligence, Cyber Security etc</p>
 <p><h3><b>Open Source Contributions </b></h3>Problem Solving & Scalable Solution (Codebases, Products, Systems) etc</p>
 <p><h3><b>Behavioral Leadership </b></h3>Questions & Answers (Instinctual, Psychological, Organizational) etc</p>
-
-[![](https://visitcount.itsvg.in/api?id=nareshns2004&icon=0&color=0)](https://visitcount.itsvg.in)
