@@ -1,6 +1,7 @@
 # 💫 Naresh Kumar
 
-<b><h1>Senior Software Development Engineer</h1></b>
+<p><b><h1>Senior Software Development Engineer</h1></b>
+<b><h1>FullStack Development + Artificial Intelligence</h1></b></p>
 
 ## 💻 Skills
 
