@@ -3,9 +3,7 @@
 <p><b><h1>Senior Software Development Engineer</h1></b>
 <b><h2>FullStack Development + Artificial Intelligence</h2></b></p>
 
-<br/>  
-
-
+<br/>
 ## 💻 Skills 
 <table><tr><td valign="top" width="33%">
 
