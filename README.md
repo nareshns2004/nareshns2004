@@ -4,7 +4,8 @@
 <b><h2>FullStack Development + Artificial Intelligence</h2></b></p>
 
 <br/>
-## 💻 Skills 
+## 💻 Skills
+
 <table><tr><td valign="top" width="33%">
 
 ### Languages  
