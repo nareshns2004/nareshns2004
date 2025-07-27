@@ -98,7 +98,12 @@
 
 ## 💻 Statistics
 
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=nareshns2004&theme=dark&hide_border=false&include_all_commits=true&count_private=false&layout=compact)
+<div align="center">
+<a href="https://github.com/nareshns2004">
+<img align="center" src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=nareshns2004&theme=2077" height="180em"/>
+<img align="center" src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=nareshns2004&theme=2077" height="180em"/>
+<img align="center" src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=nareshns2004&theme=2077" height="180em"/>
+</div>
 
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=nareshns2004.nareshns2004)
 
