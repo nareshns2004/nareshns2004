@@ -82,10 +82,6 @@
 <a href="https://codeforces.com/profile/nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codeforces.svg" alt="nareshns2004" height="30" width="40" /></a>
 </p>
 
-## 💻 Badges
-
-![Meta](https://img.shields.io/badge/Meta-%230467DF.svg?style=for-the-badge&logo=Meta&logoColor=white) ![nVIDIA](https://img.shields.io/badge/nVIDIA-%2376B900.svg?style=for-the-badge&logo=nVIDIA&logoColor=white)
-
 ## 💻 Connect
 
 <p align="left">
