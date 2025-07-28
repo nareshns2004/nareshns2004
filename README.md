@@ -1,7 +1,7 @@
 # 💫 Naresh Kumar
 
 <p><b><h1>Senior Software Development Engineer</h1></b>
-<b><h2>FullStack Development + Artificial Intelligence</h2></b></p>
+<b><h2>Artificial Intelligence + Cloud Computing + Cyber Security + FullStack Development</h2></b></p>
 
 <br/>
 
