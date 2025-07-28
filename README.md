@@ -85,7 +85,7 @@
 ## 💻 Connect
 
 <p align="left">
-<a href="https://discord.gg/nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/discord.svg" alt="nareshns2004" height="30" width="40" /></a>
+<a href="https://discord.gg/DWjKb9De" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/discord.svg" alt="nareshns2004" height="30" width="40" /></a>
 <a href="https://medium.com/@nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/medium.svg" alt="@nareshns2004" height="30" width="40" /></a>
 <a href="https://linkedin.com/in/nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/linked-in-alt.svg" alt="nareshns2004" height="30" width="40" /></a>
 <a href="https://twitter.com/naresh_swe24" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/twitter.svg" alt="naresh_swe24" height="30" width="40" /></a>
