@@ -61,31 +61,6 @@
 
 <br/>  
 
-## 💻 Profiles
-
-<p align="left">
-<a href="https://www.leetcode.com/nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="nareshns2004" height="30" width="40" /></a>
-<a href="https://auth.geeksforgeeks.org/user/nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/geeks-for-geeks.svg" alt="nareshns2004" height="30" width="40" /></a>
-<a href="https://kaggle.com/nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg" alt="nareshns2004" height="30" width="40" /></a>
-<a href="https://www.hackerearth.com/@nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerearth.svg" alt="@nareshns2004" height="30" width="40" /></a>
-<a href="https://www.codechef.com/users/naresh_swe24" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/codechef.svg" alt="naresh_swe24" height="30" width="40" /></a>
-<a href="https://codeforces.com/profile/nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codeforces.svg" alt="nareshns2004" height="30" width="40" /></a>
-</p>
-
-## 💻 Connect
-
-<p align="left">
-<a href="https://discord.gg/DWjKb9De" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/discord.svg" alt="nareshns2004" height="30" width="40" /></a>
-<a href="https://medium.com/@nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/medium.svg" alt="@nareshns2004" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/linked-in-alt.svg" alt="nareshns2004" height="30" width="40" /></a>
-<a href="https://twitter.com/naresh_swe24" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/twitter.svg" alt="naresh_swe24" height="30" width="40" /></a>
-<a href="https://stackoverflow.com/users/24790922" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/stack-overflow.svg" alt="24790922" height="30" width="40" /></a>
-<a href="https://www.youtube.com/@nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/youtube.svg" alt="nareshns2004" height="30" width="40" /></a>
-<a href="https://instagram.com/nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/instagram.svg" alt="nareshns2004" height="30" width="40" /></a>
-<a href="https://fb.com/nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/facebook.svg" alt="nareshns2004" height="30" width="40" /></a>
-<a href="https://hashnode.com/@nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/hashnode.svg" alt="@nareshns2004" height="30" width="40" /></a>
-<a href="https://dev.to/nareshns2004" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/devto.svg" alt="nareshns2004" height="30" width="40" /></a></p>
-
 ## 💻 Statistics
 
 <div align="center">
