@@ -1,7 +1,7 @@
 # 💫 Naresh Kumar
 
 <p><b><h1>Staff Software Engineer</h1></b>
-<b><h1>FullStack Development + Artificial Intelligence</h1></b>
+
 <br/>
 
 ## 💻 Skills
