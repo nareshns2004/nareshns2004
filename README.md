@@ -64,8 +64,8 @@
 ## 💻 Platforms
 
 <p align="left">
-<a href="https://www.interviewbit.com/profile/nareshns2004/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/InterviewBit.png" alt="nareshn2004" height="30" width="40" /></a>
 <a href="https://www.codechef.com/users/naresh_swe24" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/CodeChef.png" alt="naresh_swe24" height="30" width="40" /></a>
+<a href="https://www.interviewbit.com/profile/nareshns2004/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/InterviewBit.png" alt="nareshn2004" height="30" width="40" /></a>
 <a href="https://kaggle.com/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Kaggle.png" alt="nareshns2004" height="30" width="40" /></a>
 <a href="https://codeforces.com/profile/naresh_swe_24" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/CodeForces.png" alt="naresh_swe_24" height="30" width="40" /></a>
 <a href="https://www.leetcode.com/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/LeetCode.png" alt="nareshns2004" height="30" width="40" /></a>
