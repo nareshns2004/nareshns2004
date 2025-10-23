@@ -63,10 +63,8 @@
 
 <p align="left">
 <a href="https://linkedin.com/in/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Linkedin.png" alt="nareshns2004" height="30" width="40" /></a>
-<a href="https://fb.com/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Facebook.png" alt="nareshns2004" height="30" width="40" /></a>
-<a href="https://instagram.com/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Instagram.png" alt="nareshns2004" height="30" width="40" /></a>
-<a href="https://www.youtube.com/@nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/YouTube.png" alt="nareshns2004" height="30" width="40" /></a>
 <a href="https://substack.com/@nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Substack.png" alt="nareshns2004" height="30" width="40" /></a>
+<a href="https://www.youtube.com/@nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/YouTube.png" alt="nareshns2004" height="30" width="40" /></a>
 <a href="https://medium.com/@nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Medium.png" alt="@nareshns2004" height="30" width="40" /></a>
 <a href="https://twitter.com/naresh_swe24" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Twitter.png" alt="naresh_swe24" height="30" width="40" /></a>
 </p>
