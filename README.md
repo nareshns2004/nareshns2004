@@ -6,7 +6,7 @@
 
 ## 💻 Skills
 
-<table><tr><td valign="top" width="33%">
+<table><tr><td valign="top" width="25%">
   
 ### Programming  
 <div align="center"> 
@@ -19,7 +19,7 @@
 <a href="https://www.rust-lang.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/rust-plain.svg" alt="Rust" height="50" /></a> 
 <a href="https://www.gnu.org/software/bash/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/gnu_bash-icon.svg" alt="Bash" height="50" /></a>
 </div>
-</td><td valign="top" width="33%">
+</td><td valign="top" width="25%">
 
 ### Tools  
 <div align="center">
@@ -32,7 +32,7 @@
 <a href="https://kubernetes.io/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/kubernetes-icon.svg" alt="Kubernetes" height="50" /></a>  
 <a href="https://www.terraform.io/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/terraformio-icon.svg" alt="Terraform" height="50" /></a>
 </div>
-</td><td valign="top" width="33%">
+</td><td valign="top" width="25%">
 
 ### Platforms  
 <div align="center">
