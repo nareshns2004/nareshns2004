@@ -58,7 +58,7 @@
 ## 💻 Platforms
 
 <p align="left">
-<a href="https://www.geeksforgeeks.org/profile/nareshns2004/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/GeeksforGeeks.png" alt="naresh_swe24" height="30" width="40" /></a>
+<a href="https://www.geeksforgeeks.org/profile/nareshns2004/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/GeeksforGeeks.png" alt="nareshns2004" height="30" width="40" /></a>
 <a href="https://www.interviewbit.com/profile/nareshns2004/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/InterviewBit.png" alt="nareshn2004" height="30" width="40" /></a>
 <a href="https://kaggle.com/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Kaggle.png" alt="nareshns2004" height="30" width="40" /></a>
 <a href="https://huggingface.co/naresns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/HuggingFace.png" alt="nareshns2004" height="30" width="40" /></a>
@@ -74,7 +74,7 @@
 <a href="https://www.instagram.com/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Instagram.png" alt="nareshns2004" height="30" width="40" /></a>
 <a href="https://substack.com/@nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Substack.png" alt="nareshns2004" height="30" width="40" /></a>
 <a href="https://medium.com/@nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Medium.png" alt="@nareshns2004" height="30" width="40" /></a>
-<a href="https://twitter.com/naresh_swe24" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Twitter.png" alt="naresh_swe24" height="30" width="40" /></a>
+<a href="https://twitter.com/naresh_swe24" target="blank"><img align="center" src="https://github.com/nareshns2004/naresh_swe24/blob/main/Images/Twitter.png" alt="naresh_swe24" height="30" width="40" /></a>
 </p>
 
 ## 💻 Statistics
