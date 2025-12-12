@@ -55,6 +55,28 @@
 <a href="https://ubuntu.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/ubuntu-colored.svg" alt="Ubuntu" title="Ubuntu" width="36" height="36" /></a><a href="https://www.vim.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/vim-colored.svg" alt="Vim" title="Vim" width="36" height="36" /></a><a href="https://www.sublimetext.com/index2" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/sublimetext-colored.svg" alt="Sublime Text" title="Sublime Text" width="36" height="36" /></a><a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/visualstudiocode-colored.svg" alt="VS Code" title="VS Code" width="36" height="36" /></a><a href="https://www.gnu.org/software/emacs/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/emacs-colored.svg" alt="Emacs" title="Emacs" width="36" height="36" /></a><a href="https://fedoraproject.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/fedora-colored.svg" alt="Fedora" title="Fedora" width="36" height="36" /></a>
 </p>
 
+## 💻 Platforms
+
+<p align="left">
+<a href="https://www.geeksforgeeks.org/profile/nareshns2004/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/GeeksforGeeks.png" alt="naresh_swe24" height="30" width="40" /></a>
+<a href="https://www.interviewbit.com/profile/nareshns2004/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/InterviewBit.png" alt="nareshn2004" height="30" width="40" /></a>
+<a href="https://kaggle.com/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Kaggle.png" alt="nareshns2004" height="30" width="40" /></a>
+<a href="https://huggingface.co/naresns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/HuggingFace.png" alt="nareshns2004" height="30" width="40" /></a>
+<a href="https://codeforces.com/profile/naresh_swe_24" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/CodeForces.png" alt="naresh_swe_24" height="30" width="40" /></a>
+<a href="https://www.leetcode.com/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/LeetCode.png" alt="nareshns2004" height="30" width="40" /></a>
+</p>
+
+## 💻 Connect
+
+<p align="left">
+<a href="https://www.youtube.com/@nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/YouTube.png" alt="nareshns2004" height="30" width="40" /></a>
+<a href="https://facebook.com/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Facebook.png" alt="nareshns2004" height="30" width="40" /></a>
+<a href="https://www.instagram.com/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Instagram.png" alt="nareshns2004" height="30" width="40" /></a>
+<a href="https://substack.com/@nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Substack.png" alt="nareshns2004" height="30" width="40" /></a>
+<a href="https://medium.com/@nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Medium.png" alt="@nareshns2004" height="30" width="40" /></a>
+<a href="https://twitter.com/naresh_swe24" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Twitter.png" alt="naresh_swe24" height="30" width="40" /></a>
+</p>
+
 ## 💻 Statistics
 
 <div align="center">
