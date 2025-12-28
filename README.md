@@ -56,7 +56,7 @@
 <a href="https://www.interviewbit.com/profile/nareshns2004/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/InterviewBit.png" alt="nareshn2004" height="30" width="40" /></a>
 <a href="https://kaggle.com/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Kaggle.png" alt="nareshns2004" height="30" width="40" /></a>
 <a href="https://huggingface.co/naresns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/HuggingFace.png" alt="nareshns2004" height="30" width="40" /></a>
-<a href="https://codeforces.com/profile/naresh_swe_24" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/CodeForces.png" alt="naresh_swe_24" height="30" width="40" /></a>
+<a href="https://codeforces.com/profile/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/CodeForces.png" alt="nareshns2004" height="30" width="40" /></a>
 <a href="https://www.leetcode.com/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/LeetCode.png" alt="nareshns2004" height="30" width="40" /></a>
 </p>
 
