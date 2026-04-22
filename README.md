@@ -34,7 +34,7 @@
 </div>
 </td><td valign="top" width="33%">
 
-### Frameworks  
+### Frameworks
 <div align="center">
 <a href="https://kafka.apache.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/apache_kafka-icon.svg" alt="Kafka" height="50" /></a>
 <a href="https://hadoop.apache.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/apache_hadoop-icon.svg" alt="Hadoop" height="50" /></a>
@@ -49,7 +49,15 @@
 
 <br/>
 
+## 💻 Platforms
+
+<p align="left">
+<a href="https://www.geeksforgeeks.org/profile/nareshns2004/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/GeeksforGeeks.png" alt="nareshns2004" height="30" width="40" /></a>
+<a href="https://www.interviewbit.com/profile/nareshns2004/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/InterviewBit.png" alt="nareshn2004" height="30" width="40" /></a>
+</p>
+
 ## 💻 Connect
+
 <p align="left">
 <a href="https://www.youtube.com/@nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/YouTube.png" alt="nareshns2004" height="30" width="40" /></a>
 <a href="https://substack.com/@nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Substack.png" alt="nareshns2004" height="30" width="40" /></a>
