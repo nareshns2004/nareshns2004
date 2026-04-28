@@ -54,6 +54,8 @@
 <p align="left">
 <a href="https://www.geeksforgeeks.org/profile/nareshns2004/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/GeeksforGeeks.png" alt="nareshns2004" height="30" width="40" /></a>
 <a href="https://www.interviewbit.com/profile/nareshns2004/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/InterviewBit.png" alt="nareshn2004" height="30" width="40" /></a>
+<a href="https://codeforces.com/profile/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/CodeForces.png" alt="nareshns2004" height="30" width="40" /></a>
+<a href="https://substack.com/@nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Substack.png" alt="nareshns2004" height="30" width="40" /></a>
 </p>
 
 ## 💻 Platforms
@@ -61,6 +63,8 @@
 <p align="left">
 <a href="https://quantumzeitgeist.com/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/QuantumZeitgeist.png" alt="nareshns2004" height="30" width="40" /></a>
 <a href="https://www.ycombinator.com/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/YCombinator.png" alt="nareshn2004" height="30" width="40" /></a>
+<a href="https://www.linkedin.com/in/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Linkedin.png" alt="nareshns2004" height="30" width="40" /></a>
+<a href="https://x.com/naresh_swe24" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/Twitter.png" alt="naresh_swe24" height="30" width="40" /></a>
 </p>
 
 ## 💻 Statistics
