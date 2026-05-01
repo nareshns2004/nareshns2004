@@ -2,6 +2,12 @@
 
 <p><b><h1>Staff Engineer</h1></b>
 
+<b><i><h3>AI Infrastructure & ML Systems Engineer specializing in distributed ML and LLM inference platforms across Kubernetes, GPU-accelerated compute and high-performance networking</h3></i></b>
+
+<b><i><h3>I design and operate production-grade systems in Linux, C++ and Python with deep focus on resource scheduling, workload reliability and cluster-scale performance optimization</h4></i></b>
+
+<b><i><h3>Currently building distributed inference platforms and GPU orchestration systems, with strong emphasis on observability, fault tolerance and efficient resource utilization</h3></i></b>
+
  <br/>
 
 ## 💻 Skills
