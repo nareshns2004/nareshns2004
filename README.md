@@ -49,13 +49,6 @@
 
 <br/>
 
-## 💻 Platforms
-
-<p align="left">
-<a href="https://quantumzeitgeist.com/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/QuantumZeitgeist.png" alt="nareshns2004" height="30" width="40" /></a>
-<a href="https://www.ycombinator.com/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/YCombinator.png" alt="nareshn2004" height="30" width="40" /></a>
-</p>
-
 ## 💻 Statistics
 
 <div align="center">
