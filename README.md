@@ -1,6 +1,6 @@
 # 💫 Naresh Kumar
 
-<p><b><h1>AI-ML Infra Engineering</h1></b>
+<p><b><h1>AI-ML Infrastructure Engineering</h1></b>
 
 <b><i><h3>AI Infrastructure & ML Systems Engineer specializing in distributed ML and LLM inference platforms across Kubernetes, GPU-accelerated compute and high-performance networking</h3></i></b>
 
