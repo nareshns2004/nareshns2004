@@ -58,9 +58,8 @@
 ## 💻 Platforms
 
 <p align="left">
-<a href="https://www.leetcode.com/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/LeetCode.png" alt="nareshns2004" height="30" width="40" /></a>
-<a href="https://huggingface.co/naresns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/HuggingFace.png" alt="nareshns2004" height="30" width="40" /></a>
-<a href="https://hub.docker.com/u/nareshns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/DockerHub.png" alt="nareshns2004" height="30" width="40" /></a>
+<a href="https://quantumzeitgeist.com/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/QuantumZeitgeist.png" alt="nareshns2004" height="30" width="40" /></a>
+<a href="https://www.ycombinator.com/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/YCombinator.png" alt="nareshn2004" height="30" width="40" /></a>
 </p>
 
 ## 💻 Statistics
