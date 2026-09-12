@@ -1,13 +1,74 @@
-- 👋 Hi, I’m @nareshns2004
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+# 💫 Naresh Kumar
 
-<!---
-nareshns2004/nareshns2004 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
-C++ CSS3 Java HTML5 JavaScript Python Swift PowerShell NodeJS React Hook Form React Router React Query React Vite TailwindCSS Firebase Firebase MongoDB Figma Canva Adobe Photoshop Git GitHub Postman
+<p><b><h1>AI-ML Infrastructure Engineering</h1></b>
+
+<b><i><h3>AI Infrastructure & ML Systems Engineer specializing in distributed ML and LLM inference platforms across Kubernetes, GPU-accelerated compute and high-performance networking</h3></i></b>
+
+<b><i><h3>I design and operate production-grade systems in Linux, C++ and Python with deep focus on resource scheduling, workload reliability and cluster-scale performance optimization</h4></i></b>
+
+<b><i><h3>Currently building distributed inference platforms and GPU orchestration systems, with strong emphasis on observability, fault tolerance and efficient resource utilization</h3></i></b>
+
+ <br/>
+
+## 💻 Skills
+
+<table><tr><td valign="top" width="33%">
+
+### Programming  
+<div align="center"> 
+<a href="https://www.cplusplus.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/cplusplus-original.svg" alt="C++" height="50" /></a>
+<a href="https://www.java.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/java-original-wordmark.svg" alt="Java" height="50" /></a>
+<a href="https://www.python.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/python-original.svg" alt="Python" height="50" /></a>
+<a href="https://go.dev/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/go-original.svg" alt="Go" height="50" /></a>
+<a href="https://www.cprogramming.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/c-original.svg" alt="C" height="50" /></a>
+<a href="https://github.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/git-scm-icon.svg" alt="Git" height="50" /></a> 
+<a href="https://www.linux.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/linux-original.svg" alt="Linux" height="50" /></a>
+<a href="https://www.gnu.org/software/bash/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/gnu_bash-icon.svg" alt="Bash" height="50" /></a>
+</div>
+</td><td valign="top" width="33%">
+
+### Frameworks
+<div align="center">
+<a href="https://kafka.apache.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/apache_kafka-icon.svg" alt="Kafka" height="50" /></a>
+<a href="https://hadoop.apache.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/apache_hadoop-icon.svg" alt="Hadoop" height="50" /></a>
+<a href="https://redis.io/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/redis-original-wordmark.svg" alt="Redis" height="50" /></a>
+<a href="https://graphql.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/graphql.png" alt="GraphQL" height="50" /></a>
+<a href="https://www.tensorflow.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/tensorflow-icon.svg" alt="TensorFlow" height="50" /></a>
+<a href="https://pytorch.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/pytorch-icon.svg" alt="pytorch" height="50" /></a>
+<a href="https://opencv.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/opencv-icon.svg" alt="OpenCV" height="50" /></a>
+<a href="https://keras.io/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/keras.png" alt="Keras" height="50" /></a>
+</div>
+</td><td valign="top" width="33%">
+
+### Infrastructure  
+<div align="center">
+<a href="https://aws.amazon.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/amazonwebservices-original-wordmark.svg" alt="AWS" height="50" /></a> 
+<a href="https://www.docker.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/docker-original-wordmark.svg" alt="Docker" height="50" /></a>  
+<a href="https://kubernetes.io/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/kubernetes-icon.svg" alt="Kubernetes" height="50" /></a>  
+<a href="https://www.jenkins.io/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/jenkins-icon.svg" alt="Jenkins" height="50" /></a>
+<a href="https://www.terraform.io/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/terraformio-icon.svg" alt="Terraform" height="50" /></a>
+<a href="https://www.ansible.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/ansible.png" alt="Ansible" height="50" /></a>
+<a href="https://www.elastic.co/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/elasticsearch.png" alt="Elastic Search" height="50" /></a>
+<a href="https://www.openstack.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/openstack.png" alt="OpenStack" height="50" /></a>
+</div>
+</td></tr></table>
+
+<br/>
+
+## 💻 Platforms
+
+<p align="left">
+<a href="https://leetcode.com/u/nareshns2004/" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/LeetCode.png" alt="nareshns2004" height="30" width="40" /></a>
+<a href="https://huggingface.co/naresns2004" target="blank"><img align="center" src="https://github.com/nareshns2004/nareshns2004/blob/main/Images/HuggingFace.png" alt="nareshn2004" height="30" width="40" /></a>
+</p>
+
+## 💻 Statistics
+
+<div align="center">
+<a href="https://github.com/nareshns2004">
+<img align="center" src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=nareshns2004&theme=2077" height="180em"/>
+<img align="center" src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=nareshns2004&theme=2077" height="180em"/>
+</div>
+
+![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=nareshns2004.nareshns2004)
+
