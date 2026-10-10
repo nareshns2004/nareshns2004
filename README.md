@@ -14,10 +14,9 @@
   <a href="https://substack.com/@nareshns2004"><img alt="Substack" src="https://img.shields.io/badge/Substack-essays-FF6719?style=flat-square&logo=substack&logoColor=white"></a>
   <a href="https://x.com/naresh_swe24"><img alt="X" src="https://img.shields.io/badge/X-naresh__swe24-000000?style=flat-square&logo=x&logoColor=white"></a>
   <a href="https://leetcode.com/u/nareshns2004/"><img alt="LeetCode" src="https://img.shields.io/badge/LeetCode-nareshns2004-FFA116?style=flat-square&logo=leetcode&logoColor=black"></a>
-  <a href="mailto:nareshns2004@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-open%20to%20roles-B4470E?style=flat-square&logo=gmail&logoColor=white"></a>
 </p>
 
-I’m **Naresh**. I work **below the framework layer** of AI clusters: kernel networking, RDMA/RoCE, DPDK, SR-IOV, KVM and NCCL, about nine years of it. When a 512-GPU job stalls, the cause is usually one bad link, NIC or GPU, while every rank reports the same timeout. I build the infrastructure that finds that one component and gets training back fast, and that moves bytes between GPUs without wasting the hardware.
+I’m **Naresh**, a systems engineer focused on the infrastructure **beneath the AI framework layer**: kernel networking, RDMA/RoCE, DPDK, SR-IOV, KVM and NCCL. When a 512-GPU job stalls, the cause is usually one bad link, NIC or GPU, while every rank reports the same timeout. I build the infrastructure that finds that one component and gets training back fast, and that moves bytes between GPUs without wasting the hardware.
 
 Everything here is **built in public**. A number only appears once it’s measured and linked to its run.
 
@@ -51,6 +50,24 @@ Everything here is **built in public**. A number only appears once it’s measur
 </td>
 </tr>
 </table>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/systems-dark.svg">
+  <img alt="FIG. 2, the two problems as systems. Left, goodput: NCCL flight-recorder, DCGM/Xid and NIC/PFC counter evidence converge on a topology join that names the culprit rank and component, then the smallest safe recovery is chosen: communicator re-init, then node swap, then peer checkpoint restore. Right, kvwire: a compute-bound prefill pool streams KV-cache blocks over GPUDirect RDMA to a memory-bound decode pool, supervised by a coordinator that stays correct if the network fails mid-transfer." src="assets/systems-light.svg" width="100%">
+</picture>
+
+## One timeout, many causes
+
+In NCCL, nearly every hardware fault ends the same way: a watchdog timeout on every rank. The engineering is in the last two columns: naming the one component, then choosing the cheapest recovery that is still safe.
+
+| Fault | What every rank reports | Evidence that names the component | Smallest safe recovery |
+|---|---|---|---|
+| GPU off the bus (Xid 79) | Watchdog timeout, same collective sequence number | Xid in kernel log / DCGM; the one rank missing from the flight recorder's last completed op | Swap in a spare node, restore from peer in-memory checkpoint |
+| Uncorrectable ECC / row-remap failure (Xid 48, 64) | Hang or NaN loss, then timeout | DCGM ECC and row-remap counters on one GPU | Drain node, resume from last checkpoint |
+| NVLink fault (Xid 74) | Intra-node collectives stall | Xid 74, NVLink CRC / replay counters | Swap node |
+| RoCE link flap or bad optic | Inter-node all-reduce stalls on all ranks | `link_downed`, symbol / CRC errors on one NIC port, IB async events | Communicator re-init once the link recovers; else swap node |
+| PFC pause storm | All ranks slow, **no errors anywhere** | Pause counters traced hop by hop to the port that paused first (FIG. 3 below) | Fix the origin (ECN / DCQCN thresholds, isolate port); restarting changes nothing |
+| Straggler (thermal / power throttling) | Step-time skew, no timeout | DCGM clock-throttle reasons, per-rank step time | Cordon at the next checkpoint boundary |
 
 ## ▶️ Interactive notes: break things in your browser
 
@@ -95,11 +112,14 @@ Each one is a working simulator or calculator, with its model and assumptions st
 - **[nicprof](https://github.com/nareshns2004/ai-nic-performance-profiler)**: which NIC counter explains which millisecond of training step time. Aligns RDMA/ethtool/SR-IOV counters to each rank’s steps and traces PFC pause back to its origin, so a *victim* port isn’t blamed. `nicprof demo` · 69 tests
 - **[kptk](https://github.com/nareshns2004/kernel-performance-toolkit)**: explains *why* a Linux workload is slow from kernel evidence: run-queue delay, NUMA locality, THP fallback, and `perf_event_open(2)` called directly. Standard library only · 43 tests
 
-<sub>Also worked with: Java · Kafka · Hadoop · Redis · GraphQL · TensorFlow · Keras · OpenCV · AWS · Terraform · Ansible · Jenkins · Elasticsearch · OpenStack</sub>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/pfc-dark.svg">
+  <img alt="FIG. 3, PFC pause propagation. Hosts H0 to H3 send incast traffic through leaf A, a spine and leaf B to one receiver; H4 sends an unrelated flow to R2. Leaf B's egress queue toward the incast receiver fills and PFC pause frames propagate upstream hop by hop to every host. H4's flow stalls although it never touches the congested port: it is a victim. The origin is the leaf B egress port, which nicprof finds by following pause counters back hop by hop." src="assets/pfc-light.svg" width="100%">
+</picture>
 
 ---
 
 <p align="center">
   <b>Open to GPU cluster networking, distributed-training infrastructure and inference-platform roles</b><br>
-  USA · Canada · Europe · <a href="mailto:nareshns2004@gmail.com">nareshns2004@gmail.com</a> · <a href="https://portfolio-webapp-roan.vercel.app">portfolio</a>
+  USA · Canada · Europe · <a href="https://www.linkedin.com/in/nareshns2004/">LinkedIn</a> · <a href="https://portfolio-webapp-roan.vercel.app">portfolio</a>
 </p>

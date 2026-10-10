@@ -3,7 +3,8 @@
 
     python3 scripts/build_assets.py
 
-Writes assets/banner-{light,dark}.svg and assets/stack-{light,dark}.svg.
+Writes assets/banner-{light,dark}.svg, assets/stack-{light,dark}.svg and
+assets/systems-{light,dark}.svg and assets/pfc-{light,dark}.svg.
 Standard library only. Brand icon paths come from Simple Icons (CC0) and are
 cached in scripts/brand-icons.json; everything else is drawn here.
 
@@ -139,7 +140,7 @@ def banner(t):
 <text class="h" x="36" y="150"><tspan class="s">slowest link</tspan> and as reliable as its</text>
 <text class="h" x="36" y="184"><tspan class="r">weakest</tspan>. I make it lose less time</text>
 <text class="h" x="36" y="218">to both.</text>
-<text class="sub" x="36" y="262">~9 yrs below the framework layer</text>
+<text class="sub" x="36" y="262">Distributed Systems &amp; GPU Networking Engineering</text>
 <text class="sub" x="36" y="281" style="fill:{t['graphite']}">RDMA · RoCE · NCCL · DPDK · SR-IOV · KVM · eBPF</text>
 <line x1="560" y1="28" x2="560" y2="272" stroke="{t['rule']}"/>
 <text class="cap" x="580" y="30">FIG. 0 · RING ALL-REDUCE</text>
@@ -272,10 +273,10 @@ def stack(t, theme):
             f'<text class="cap" x="{LX}" y="34">FIG. 1 · WHERE I WORK IN THE STACK</text>',
             f'<text class="eh" x="{EX}" y="34">EVIDENCE (REPOS)</text>']
     y = TOP
-    # bracket: the layers below the framework
+    # bracket: the layers I focus on (below the framework)
     top_br, bot_br = TOP + ROW + 6, TOP + len(LAYERS) * ROW - 10
     body.append(f'<path d="M14 {top_br} h-4 v{bot_br-top_br} h4" fill="none" stroke="{t["copper"]}" stroke-width="2"/>')
-    body.append(f'<text transform="translate(8 {(top_br+bot_br)/2}) rotate(-90)" text-anchor="middle" style="font:600 10.5px {MONO};fill:{t["copper"]};letter-spacing:.08em">~9 YEARS BELOW THE FRAMEWORK LAYER</text>')
+    body.append(f'<text transform="translate(8 {(top_br+bot_br)/2}) rotate(-90)" text-anchor="middle" style="font:600 10.5px {MONO};fill:{t["copper"]};letter-spacing:.08em">PRIMARY FOCUS · L1–L4</text>')
     body.append(f'<line x1="{datapath_x}" y1="{TOP+20}" x2="{datapath_x}" y2="{TOP+(len(LAYERS)-1)*ROW+20}" stroke="{t["rule2"]}" stroke-width="1.5" stroke-dasharray="3 4"/>')
     for i, (num, name, desc, chips, ev) in enumerate(LAYERS):
         body.append(f'<rect class="flash fl{i}" x="{LX-8}" y="{y-6}" width="{W-2*LX+16}" height="{ROW-8}" rx="8" fill="{t["paper2"]}"/>')
@@ -306,11 +307,192 @@ def stack(t, theme):
 """
 
 
+# ───────────────────────────── systems ─────────────────────────────
+
+def window(name, a, b, cycle):
+    """Keyframes that show an element from a% to b% of the cycle."""
+    frames = f"0% {{ opacity: 0; }} {a}% {{ opacity: 1; }}" + (f" {b}% {{ opacity: 0; }}" if b < 100 else "")
+    return f".{name} {{ opacity: 0; animation: {name} {cycle}s step-end infinite; }} @keyframes {name} {{ {frames} }}"
+
+
+def systems(t):
+    W, H = 880, 296
+    cycle = 8   # goodput panel
+    kv = 6      # kvwire panel
+    css = [f"""
+    .cap {{ font: 600 11px {MONO}; fill: {t['graphite']}; letter-spacing: .08em; }}
+    .pn {{ font: 600 15px {SANS}; }}
+    .ps {{ font: 500 11px {MONO}; fill: {t['graphite']}; }}
+    .box {{ fill: {t['paper2']}; stroke: {t['rule2']}; stroke-width: 1.2; }}
+    .bt {{ font: 500 10.5px {MONO}; fill: {t['ink2']}; text-anchor: middle; }}
+    .dim {{ fill: none; stroke: {t['rule2']}; stroke-dasharray: 3 3; }}
+    .dt {{ font: 500 10.5px {MONO}; fill: {t['graphite']}; }}
+    .wire {{ fill: none; stroke: {t['rule2']}; stroke-width: 1.3; }}
+    .foot {{ font: 500 11px {MONO}; fill: {t['graphite']}; }}
+    .dot {{ fill: {t['signal']}; }}
+    .kvb {{ fill: {t['copper']}; animation: kv {kv}s linear infinite; }}
+    @keyframes kv {{ 0% {{ transform: translateX(0); opacity: 0; }} 8% {{ opacity: 1; }} 88% {{ opacity: 1; }}
+                    100% {{ transform: translateX(124px); opacity: 0; }} }}
+    .pf {{ fill: {t['signal']}; animation: pf 1.1s ease-in-out infinite alternate; }}
+    @keyframes pf {{ from {{ fill-opacity: .25; }} to {{ fill-opacity: .9; }} }}
+    .dc {{ fill: {t['copper']}; animation: dc 2.4s ease-in-out infinite alternate; }}
+    @keyframes dc {{ from {{ fill-opacity: .2; }} to {{ fill-opacity: .7; }} }}
+    .hb {{ fill: none; stroke: {t['graphite']}; stroke-width: 1.2; stroke-dasharray: 3 4; animation: hb 1.4s linear infinite; }}
+    @keyframes hb {{ to {{ stroke-dashoffset: -14; }} }}
+    """]
+    # goodput: three evidence streams converge on the topology join (0–30%), the join names
+    # the culprit (40%), then the cheapest safe recovery is chosen (55%).
+    sig = [("NCCL flight rec.", 111), ("DCGM · Xid", 155), ("NIC · PFC ctrs", 199)]
+    JY = 155
+    dots = []
+    for i, (_, y) in enumerate(sig):
+        dy = JY - y
+        css.append(f".d{i} {{ animation: d{i} {cycle}s linear infinite; }} @keyframes d{i} {{ "
+                   f"0% {{ transform: translate(0px,0px); opacity: 1; }} 10% {{ transform: translate(16px,0px); }} "
+                   f"20% {{ transform: translate(16px,{dy}px); }} 28% {{ transform: translate(32px,{dy}px); opacity: 1; }} "
+                   f"30% {{ transform: translate(32px,{dy}px); opacity: 0; }} 100% {{ transform: translate(32px,{dy}px); opacity: 0; }} }}")
+        dots.append(f'<circle class="dot d{i}" cx="158" cy="{y}" r="3.4"/>')
+    css.append(window("jhi", 30, 100, cycle))
+    css.append(window("cul", 40, 100, cycle))
+    css.append(window("pick", 55, 100, cycle))
+    css.append("""@media (prefers-reduced-motion: reduce) {
+      .dot, .kvb, .pf, .dc, .hb, .jhi, .cul, .pick { animation: none !important; }
+      .dot { opacity: 0; } .jhi, .cul, .pick { opacity: 1; } .kvb { transform: translateX(62px); } }""")
+
+    left = [f'<text x="30" y="68"><tspan class="pn" fill="{t["signal"]}">goodput</tspan><tspan class="ps" dx="10">fault attribution &amp; recovery</tspan></text>']
+    for name, y in sig:
+        left.append(f'<rect class="box" x="30" y="{y-15}" width="128" height="30" rx="4"/><text class="bt" x="94" y="{y+4}">{esc(name)}</text>')
+        left.append(f'<path class="wire" d="M158 {y} H174 V{JY} H190"/>')
+    left.append(f'<rect class="box" x="190" y="{JY-25}" width="100" height="50" rx="4"/>'
+                f'<rect class="jhi" x="190" y="{JY-25}" width="100" height="50" rx="4" fill="none" stroke="{t["signal"]}" stroke-width="2"/>'
+                f'<text class="bt" x="240" y="{JY-3}">join on</text><text class="bt" x="240" y="{JY+12}">topology</text>')
+    left.append(f'<path class="wire" d="M290 {JY} H304 V116 H318"/><path class="wire" d="M369 136 V150"/>')
+    left.append(f'<rect class="dim" x="318" y="96" width="102" height="40" rx="4"/>'
+                f'<g class="cul"><rect x="318" y="96" width="102" height="40" rx="4" fill="{t["paper"]}" stroke="{t["fault"]}" stroke-width="2"/>'
+                f'<text class="bt" x="369" y="112" style="fill:{t["fault"]}">culprit</text><text class="bt" x="369" y="127">rank 5 · NIC 2</text></g>')
+    for k, name in enumerate(["comm re-init", "swap node", "peer ckpt"]):
+        y = 150 + k * 28
+        left.append(f'<rect class="dim" x="318" y="{y}" width="102" height="22" rx="3"/><text class="dt" x="326" y="{y+15}">{k+1} {name}</text>')
+    left.append(f'<g class="pick"><rect x="318" y="150" width="102" height="22" rx="3" fill="{t["signal"]}" fill-opacity=".14" stroke="{t["signal"]}" stroke-width="1.6"/>'
+                f'<text x="326" y="165" style="font:600 10.5px {MONO};fill:{t["signal"]}">1 comm re-init</text></g>')
+    left.append(f'<text class="foot" x="30" y="272">detect → attribute → smallest safe recovery</text>')
+    left.extend(dots)
+
+    # kvwire: prefill pool → KV blocks over GPUDirect RDMA → decode pool, with a coordinator.
+    right = [f'<text x="470" y="68"><tspan class="pn" fill="{t["copper"]}">kvwire</tspan><tspan class="ps" dx="10">RDMA KV-cache transport</tspan></text>']
+    for x0, title, sub, cls in [(470, "PREFILL", "compute-bound", "pf"), (730, "DECODE", "memory-bound", "dc")]:
+        right.append(f'<rect class="box" x="{x0}" y="92" width="120" height="108" rx="6"/>'
+                     f'<text class="bt" x="{x0+60}" y="108" style="font-weight:600;fill:{t["ink"]};letter-spacing:.08em">{title}</text>'
+                     f'<text class="bt" x="{x0+60}" y="192" style="fill:{t["graphite"]}">{sub}</text>')
+        for r in range(2):
+            for c in range(2):
+                gx, gy = x0 + 28 + c * 36, 116 + r * 32
+                delay = f' style="animation-delay:-{(r * 2 + c) * 0.35:.2f}s"'
+                right.append(f'<rect x="{gx}" y="{gy}" width="28" height="26" rx="2" fill="{t["paper"]}" stroke="{t["ink"]}" stroke-width="1.2"/>'
+                             f'<rect class="{cls}" x="{gx+4}" y="{gy+4}" width="20" height="18" rx="1"{delay}/>')
+    right.append(f'<line x1="590" y1="142" x2="730" y2="142" stroke="{t["ink"]}" stroke-width="1.3"/>'
+                 f'<line x1="590" y1="152" x2="730" y2="152" stroke="{t["ink"]}" stroke-width="1.3"/>'
+                 f'<text class="bt" x="660" y="132">GPUDirect RDMA</text>'
+                 f'<text class="bt" x="660" y="172" style="fill:{t["graphite"]}">re-layout kernel</text>')
+    for k in range(3):
+        right.append(f'<rect class="kvb" x="594" y="143.5" width="12" height="7" rx="1" style="animation-delay:-{k * kv / 3:.1f}s"/>')
+    right.append(f'<path class="hb" d="M630 218 L540 200"/><path class="hb" d="M690 218 L780 200"/>'
+                 f'<rect class="box" x="600" y="218" width="120" height="28" rx="4"/><text class="bt" x="660" y="236">coordinator</text>')
+    right.append(f'<text class="foot" x="470" y="272">safe when the network fails mid-transfer</text>')
+
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="t d">
+<title id="t">The two problems, as systems</title>
+<desc id="d">Left, goodput: NCCL flight-recorder, DCGM/Xid and NIC/PFC counter evidence converge on a topology join that names the culprit rank and component, then the smallest safe recovery is chosen: communicator re-init before node swap before peer checkpoint restore. Right, kvwire: a compute-bound prefill pool sends KV-cache blocks over GPUDirect RDMA, through a re-layout kernel, to a memory-bound decode pool, supervised by a coordinator that stays correct if the network fails mid-transfer.</desc>
+<style>{''.join(css)}</style>
+<rect x=".5" y=".5" width="{W-1}" height="{H-1}" rx="12" fill="{t['paper']}" stroke="{t['rule']}"/>
+<text class="cap" x="30" y="34">FIG. 2 · THE TWO PROBLEMS, AS SYSTEMS</text>
+<line x1="445" y1="52" x2="445" y2="276" stroke="{t['rule']}"/>
+{''.join(left)}
+{''.join(right)}
+</svg>
+"""
+
+
+# ───────────────────────────── pfc ─────────────────────────────
+
+def pfc(t):
+    W, H = 880, 280
+    cycle = 12
+    # Timeline (%): traffic flows 0–22, incast fills leaf B's egress queue 18–30, PAUSE goes
+    # upstream one hop at a time (32, 42, 52), the unrelated flow is stalled (60), origin named (70).
+    css = [f"""
+    .cap {{ font: 600 11px {MONO}; fill: {t['graphite']}; letter-spacing: .08em; }}
+    .sw {{ fill: {t['paper2']}; stroke: {t['ink']}; stroke-width: 1.3; }}
+    .st {{ font: 600 11px {MONO}; fill: {t['ink']}; text-anchor: middle; letter-spacing: .06em; }}
+    .hs {{ fill: {t['paper']}; stroke: {t['rule2']}; stroke-width: 1.2; }}
+    .ht {{ font: 500 10.5px {MONO}; fill: {t['ink2']}; text-anchor: middle; }}
+    .wire {{ fill: none; stroke: {t['rule2']}; stroke-width: 1.4; }}
+    .pz {{ fill: none; stroke: {t['copper']}; stroke-width: 2.4; stroke-dasharray: 5 4; }}
+    .pt {{ font: 600 10px {MONO}; fill: {t['copper']}; text-anchor: middle; letter-spacing: .06em; }}
+    .note {{ font: 500 11px {MONO}; }}
+    .dot {{ fill: {t['signal']}; }}
+    .q {{ fill: {t['fault']}; transform-box: fill-box; transform-origin: center bottom; animation: q {cycle}s linear infinite; }}
+    @keyframes q {{ 0% {{ transform: scaleY(0); }} 18% {{ transform: scaleY(0); }} 30% {{ transform: scaleY(1); }} 100% {{ transform: scaleY(1); }} }}
+    """]
+    for i in range(3):
+        css.append(f".f{i} {{ animation: f {cycle}s linear infinite; animation-delay: -{i * 0.25:.2f}s; }}")
+    css.append(f"@keyframes f {{ 0% {{ transform: translateX(0); opacity: 1; }} 22% {{ transform: translateX(80px); opacity: 1; }}"
+               f" 23% {{ opacity: 0; }} 100% {{ opacity: 0; }} }}")
+    for name, a in [("hot", 20), ("p1", 32), ("p2", 42), ("p3", 52), ("vic", 60), ("org", 70)]:
+        css.append(window(name, a, 100, cycle))
+    css.append("""@media (prefers-reduced-motion: reduce) {
+      .q, .dot, .hot, .p1, .p2, .p3, .vic, .org { animation: none !important; }
+      .dot { opacity: 0; } .hot, .p1, .p2, .p3, .vic, .org { opacity: 1; } .q { transform: none; } }""")
+
+    LA, SP, LB = 190, 390, 590   # switch x positions, 100 wide
+    MID = 145
+    hosts = [("H0", 76), ("H1", 104), ("H2", 132), ("H3", 160), ("H4", 202)]
+    body = [f'<rect x=".5" y=".5" width="{W-1}" height="{H-1}" rx="12" fill="{t["paper"]}" stroke="{t["rule"]}"/>',
+            f'<text class="cap" x="30" y="34">FIG. 3 · PFC PAUSE PROPAGATION: VICTIM VS ORIGIN</text>']
+    # links
+    for _, y in hosts:
+        body.append(f'<path class="wire" d="M110 {y} H{LA}"/>')
+    body.append(f'<path class="wire" d="M{LA+100} {MID} H{SP}"/><path class="wire" d="M{SP+100} {MID} H{LB}"/>')
+    body.append(f'<path class="wire" d="M{LB+100} 115 H770"/><path class="wire" d="M{LB+100} 185 H770"/>')
+    # incast hot link and queue
+    body.append(f'<path class="hot" d="M{LB+100} 115 H770" stroke="{t["fault"]}" stroke-width="2.6" fill="none"/>')
+    # pause overlays, hop by hop upstream
+    body.append(f'<g class="p1"><path class="pz" d="M{SP+100} {MID} H{LB}"/><text class="pt" x="{SP+150}" y="{MID-8}">◀ PAUSE</text></g>')
+    body.append(f'<g class="p2"><path class="pz" d="M{LA+100} {MID} H{SP}"/><text class="pt" x="{LA+150}" y="{MID-8}">◀ PAUSE</text></g>')
+    body.append('<g class="p3">' + "".join(f'<path class="pz" d="M110 {y} H{LA}"/>' for _, y in hosts) + '</g>')
+    # nodes
+    for name, y in hosts:
+        body.append(f'<rect class="hs" x="30" y="{y-11}" width="80" height="22" rx="3"/><text class="ht" x="70" y="{y+4}">{name}</text>')
+    for x, name in [(LA, "LEAF A"), (SP, "SPINE"), (LB, "LEAF B")]:
+        body.append(f'<rect class="sw" x="{x}" y="88" width="100" height="114" rx="6"/><text class="st" x="{x+50}" y="{MID+4}">{name}</text>')
+    body.append(f'<rect x="{LB+78}" y="98" width="14" height="30" fill="none" stroke="{t["rule2"]}"/>'
+                f'<rect class="q" x="{LB+79}" y="99" width="12" height="28"/>')
+    for name, y in [("R · incast", 115), ("R2", 185)]:
+        body.append(f'<rect class="hs" x="770" y="{y-11}" width="80" height="22" rx="3"/><text class="ht" x="810" y="{y+4}">{name}</text>')
+    for i, (x, y) in enumerate([(LA + 100, MID), (SP + 100, MID), (LB + 100, 115)]):
+        body.append(f'<circle class="dot f{i}" cx="{x}" cy="{y}" r="3.4"/>')
+    body.append(f'<text class="note" x="30" y="56" style="fill:{t["graphite"]}">H0–H3 → R (incast) · H4 → R2 (unrelated)</text>')
+    body.append(f'<g class="vic"><rect x="28" y="189" width="84" height="26" rx="4" fill="none" stroke="{t["copper"]}" stroke-width="2"/>'
+                f'<text class="note" x="30" y="240" style="fill:{t["copper"]}">victim · H4 → R2 stalls, though it never touches the hot port</text></g>')
+    body.append(f'<g class="org"><rect x="{LB+74}" y="94" width="22" height="38" rx="3" fill="none" stroke="{t["fault"]}" stroke-width="2"/>'
+                f'<text class="note" x="{LB+100}" y="72" text-anchor="middle" style="fill:{t["fault"]}">origin · leaf B egress → R</text>'
+                f'<text class="note" x="30" y="262" style="fill:{t["signal"]}">nicprof traces pause counters hop by hop to the origin, not the loudest victim</text></g>')
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="t d">
+<title id="t">PFC pause propagation: victim vs origin</title>
+<desc id="d">Four hosts send incast traffic through leaf A, a spine and leaf B to one receiver, while host H4 sends an unrelated flow to R2. Leaf B's egress queue toward the incast receiver fills, and PFC pause frames propagate upstream hop by hop: leaf B to spine, spine to leaf A, leaf A to every host. H4's flow stalls even though it never uses the congested port: it is a victim. The origin is the leaf B egress port; nicprof follows pause counters back to it.</desc>
+<style>{''.join(css)}</style>
+{''.join(body)}
+</svg>
+"""
+
+
 def main():
     OUT.mkdir(exist_ok=True)
     for theme, t in THEMES.items():
         (OUT / f"banner-{theme}.svg").write_text(banner(t))
         (OUT / f"stack-{theme}.svg").write_text(stack(t, theme))
+        (OUT / f"systems-{theme}.svg").write_text(systems(t))
+        (OUT / f"pfc-{theme}.svg").write_text(pfc(t))
     print("wrote", sorted(p.name for p in OUT.glob("*.svg")))
 
 

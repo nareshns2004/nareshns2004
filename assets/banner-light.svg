@@ -32,7 +32,7 @@
 <text class="h" x="36" y="150"><tspan class="s">slowest link</tspan> and as reliable as its</text>
 <text class="h" x="36" y="184"><tspan class="r">weakest</tspan>. I make it lose less time</text>
 <text class="h" x="36" y="218">to both.</text>
-<text class="sub" x="36" y="262">~9 yrs below the framework layer</text>
+<text class="sub" x="36" y="262">Distributed Systems &amp; GPU Networking Engineering</text>
 <text class="sub" x="36" y="281" style="fill:#555C6A">RDMA · RoCE · NCCL · DPDK · SR-IOV · KVM · eBPF</text>
 <line x1="560" y1="28" x2="560" y2="272" stroke="#D9D4C7"/>
 <text class="cap" x="580" y="30">FIG. 0 · RING ALL-REDUCE</text>
