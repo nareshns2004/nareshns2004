@@ -2,21 +2,21 @@
 
 <a href="https://portfolio-webapp-roan.vercel.app">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-    <img alt="A GPU cluster is only as fast as its slowest link and as reliable as its weakest. I make it lose less time to both. Animated: a ring of 8 GPUs loses a link, every rank times out, the job restores onto a spare and resumes." src="assets/banner-light.svg" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
+    <img alt="A GPU cluster is only as fast as its slowest link and as reliable as its weakest. I make it lose less time to both. Animated: a ring of 8 GPUs loses a link, every rank times out, the job restores onto a spare and resumes." src="assets/hero-light.svg" width="100%">
   </picture>
 </a>
 
 <p align="center">
   <a href="https://portfolio-webapp-roan.vercel.app"><img alt="Website" src="https://img.shields.io/badge/naresh.infra-portfolio-1D4ED8?style=flat-square&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI%2BPGRlZnM%2BPGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI%2BPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMkY2M0YwIi8%2BPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMUQ0RUQ4Ii8%2BPC9saW5lYXJHcmFkaWVudD48L2RlZnM%2BPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9InVybCgjZykiLz48cGF0aCBkPSJNMTYuNSA0OCBWMjIgTTE2LjUgMzEgQzE2LjUgMjUgMjEuNSAyMS41IDI4IDIxLjUgQzM1LjUgMjEuNSAzOSAyNiAzOSAzMyBWNDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Y3RjVGMCIgc3Ryb2tlLXdpZHRoPSI3LjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNDMuNSIgcj0iNi41IiBmaWxsPSIjRjA5MzVDIi8%2BPC9zdmc%2B"></a>
-  <a href="https://www.linkedin.com/in/nareshns2004/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-nareshns2004-0A66C2?style=flat-square&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjUiIHk9IjkuNSIgd2lkdGg9IjMiIGhlaWdodD0iOS41IiBmaWxsPSIjMEE2NkMyIi8%2BPGNpcmNsZSBjeD0iNi41IiBjeT0iNi4yIiByPSIxLjgiIGZpbGw9IiMwQTY2QzIiLz48cGF0aCBkPSJNMTAuNSA5LjVoMi45djEuNGMuNS0uOSAxLjYtMS43IDMuMi0xLjcgMi42IDAgMy40IDEuNiAzLjQgNC4yVjE5aC0zdi00LjljMC0xLjMtLjMtMi4zLTEuNi0yLjNzLTEuOSAxLTEuOSAyLjRWMTloLTN6IiBmaWxsPSIjMEE2NkMyIi8%2BPC9zdmc%2B"></a>
   <a href="https://huggingface.co/nareshns2004"><img alt="Hugging Face" src="https://img.shields.io/badge/Hugging%20Face-models-FFD21E?style=flat-square&logo=huggingface&logoColor=black"></a>
-  <a href="https://substack.com/@nareshns2004"><img alt="Substack" src="https://img.shields.io/badge/Substack-essays-FF6719?style=flat-square&logo=substack&logoColor=white"></a>
-  <a href="https://x.com/naresh_swe24"><img alt="X" src="https://img.shields.io/badge/X-naresh__swe24-000000?style=flat-square&logo=x&logoColor=white"></a>
   <a href="https://leetcode.com/u/nareshns2004/"><img alt="LeetCode" src="https://img.shields.io/badge/LeetCode-nareshns2004-FFA116?style=flat-square&logo=leetcode&logoColor=black"></a>
+  <a href="https://www.linkedin.com/in/nareshns2004/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-nareshns2004-0A66C2?style=flat-square&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjUiIHk9IjkuNSIgd2lkdGg9IjMiIGhlaWdodD0iOS41IiBmaWxsPSIjMEE2NkMyIi8%2BPGNpcmNsZSBjeD0iNi41IiBjeT0iNi4yIiByPSIxLjgiIGZpbGw9IiMwQTY2QzIiLz48cGF0aCBkPSJNMTAuNSA5LjVoMi45djEuNGMuNS0uOSAxLjYtMS43IDMuMi0xLjcgMi42IDAgMy40IDEuNiAzLjQgNC4yVjE5aC0zdi00LjljMC0xLjMtLjMtMi4zLTEuNi0yLjNzLTEuOSAxLTEuOSAyLjRWMTloLTN6IiBmaWxsPSIjMEE2NkMyIi8%2BPC9zdmc%2B"></a>
+  <a href="https://substack.com/@nareshns2004"><img alt="Substack" src="https://img.shields.io/badge/Substack-essays-FF6719?style=flat-square&logo=substack&logoColor=white"></a>
+  <a href="https://x.com/naresh_swe24"><img alt="Twitter" src="https://img.shields.io/badge/Twitter-naresh__swe24-000000?style=flat-square&logo=x&logoColor=white"></a>
 </p>
 
-I’m **Naresh**, a systems engineer focused on the infrastructure **beneath the AI framework layer**: kernel networking, RDMA/RoCE, DPDK, SR-IOV, KVM and NCCL. When a 512-GPU job stalls, the cause is usually one bad link, NIC or GPU, while every rank reports the same timeout. I build the infrastructure that finds that one component and gets training back fast, and that moves bytes between GPUs without wasting the hardware.
+I’m **Naresh**, a **distributed systems and GPU networking engineer**. I work on the infrastructure that large-scale training and inference run on: kernel networking, RDMA/RoCE, DPDK, SR-IOV, KVM and NCCL. When a 512-GPU job stalls, the cause is usually one bad link, NIC or GPU, while every rank reports the same timeout. I build the infrastructure that finds that one component and gets training back fast, and that moves bytes between GPUs without wasting the hardware.
 
 Everything here is **built in public**. A number only appears once it’s measured and linked to its run.
 
@@ -86,8 +86,8 @@ Each one is a working simulator or calculator, with its model and assumptions st
 ## 🧱 Where I work in the stack
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stack-dark.svg">
-  <img alt="Where I work in the stack: L5 models & serving (PyTorch, vLLM, Hugging Face, CUDA, Triton kernels, KV cache); L4 collectives & orchestration (NCCL, DP/TP/PP, checkpoint-restart, Ray, Slurm, Kubernetes); L3 transport & fabric (RDMA verbs, RoCE v2, InfiniBand, GPUDirect RDMA, PFC/ECN, rail-optimized fabrics); L2 host datapath (Linux networking, eBPF/XDP, DPDK, SR-IOV, KVM/virtio, perf/ftrace); L1 hardware (NVIDIA GPUs, NVLink, RDMA NICs, PCIe); plus Docker, Prometheus, Grafana, DCGM and C, C++, Python, Go, Bash." src="assets/stack-light.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/layers-dark.svg">
+  <img alt="Where I work in the stack: L5 models & serving (PyTorch, vLLM, Hugging Face, CUDA, Triton kernels, KV cache); L4 collectives & orchestration (NCCL, DP/TP/PP, checkpoint-restart, Ray, Slurm, Kubernetes); L3 transport & fabric (RDMA verbs, RoCE v2, InfiniBand, GPUDirect RDMA, PFC/ECN, rail-optimized fabrics); L2 host datapath (Linux networking, eBPF/XDP, DPDK, SR-IOV, KVM/virtio, perf/ftrace); L1 hardware (NVIDIA GPUs, NVLink, RDMA NICs, PCIe); plus Docker, Prometheus, Grafana, DCGM and C, C++, Python, Go, Bash." src="assets/layers-light.svg" width="100%">
 </picture>
 
 <details>
@@ -121,5 +121,5 @@ Each one is a working simulator or calculator, with its model and assumptions st
 
 <p align="center">
   <b>Open to GPU cluster networking, distributed-training infrastructure and inference-platform roles</b><br>
-  USA · Canada · Europe · <a href="https://www.linkedin.com/in/nareshns2004/">LinkedIn</a> · <a href="https://portfolio-webapp-roan.vercel.app">portfolio</a>
+  USA · Canada · Europe
 </p>
