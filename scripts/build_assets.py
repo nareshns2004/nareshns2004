@@ -3,7 +3,7 @@
 
     python3 scripts/build_assets.py
 
-Writes assets/banner-{light,dark}.svg, assets/stack-{light,dark}.svg and
+Writes assets/hero-{light,dark}.svg, assets/layers-{light,dark}.svg and
 assets/systems-{light,dark}.svg and assets/pfc-{light,dark}.svg.
 Standard library only. Brand icon paths come from Simple Icons (CC0) and are
 cached in scripts/brand-icons.json; everything else is drawn here.
@@ -489,8 +489,8 @@ def pfc(t):
 def main():
     OUT.mkdir(exist_ok=True)
     for theme, t in THEMES.items():
-        (OUT / f"banner-{theme}.svg").write_text(banner(t))
-        (OUT / f"stack-{theme}.svg").write_text(stack(t, theme))
+        (OUT / f"hero-{theme}.svg").write_text(banner(t))
+        (OUT / f"layers-{theme}.svg").write_text(stack(t, theme))
         (OUT / f"systems-{theme}.svg").write_text(systems(t))
         (OUT / f"pfc-{theme}.svg").write_text(pfc(t))
     print("wrote", sorted(p.name for p in OUT.glob("*.svg")))
