@@ -11,8 +11,8 @@
   <a href="https://portfolio-webapp-roan.vercel.app"><img alt="Website" src="https://img.shields.io/badge/naresh.infra-portfolio-1D4ED8?style=flat-square&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI%2BPGRlZnM%2BPGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI%2BPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMkY2M0YwIi8%2BPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMUQ0RUQ4Ii8%2BPC9saW5lYXJHcmFkaWVudD48L2RlZnM%2BPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9InVybCgjZykiLz48cGF0aCBkPSJNMTYuNSA0OCBWMjIgTTE2LjUgMzEgQzE2LjUgMjUgMjEuNSAyMS41IDI4IDIxLjUgQzM1LjUgMjEuNSAzOSAyNiAzOSAzMyBWNDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Y3RjVGMCIgc3Ryb2tlLXdpZHRoPSI3LjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNDMuNSIgcj0iNi41IiBmaWxsPSIjRjA5MzVDIi8%2BPC9zdmc%2B"></a>
   <a href="https://huggingface.co/nareshns2004"><img alt="Hugging Face" src="https://img.shields.io/badge/Hugging%20Face-models-FFD21E?style=flat-square&logo=huggingface&logoColor=black"></a>
   <a href="https://leetcode.com/u/nareshns2004/"><img alt="LeetCode" src="https://img.shields.io/badge/LeetCode-nareshns2004-FFA116?style=flat-square&logo=leetcode&logoColor=black"></a>
-  <a href="https://www.linkedin.com/in/nareshns2004/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-nareshns2004-0A66C2?style=flat-square&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjUiIHk9IjkuNSIgd2lkdGg9IjMiIGhlaWdodD0iOS41IiBmaWxsPSIjMEE2NkMyIi8%2BPGNpcmNsZSBjeD0iNi41IiBjeT0iNi4yIiByPSIxLjgiIGZpbGw9IiMwQTY2QzIiLz48cGF0aCBkPSJNMTAuNSA5LjVoMi45djEuNGMuNS0uOSAxLjYtMS43IDMuMi0xLjcgMi42IDAgMy40IDEuNiAzLjQgNC4yVjE5aC0zdi00LjljMC0xLjMtLjMtMi4zLTEuNi0yLjNzLTEuOSAxLTEuOSAyLjRWMTloLTN6IiBmaWxsPSIjMEE2NkMyIi8%2BPC9zdmc%2B"></a>
   <a href="https://substack.com/@nareshns2004"><img alt="Substack" src="https://img.shields.io/badge/Substack-essays-FF6719?style=flat-square&logo=substack&logoColor=white"></a>
+  <a href="https://www.linkedin.com/in/nareshns2004/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-nareshns2004-0A66C2?style=flat-square&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjUiIHk9IjkuNSIgd2lkdGg9IjMiIGhlaWdodD0iOS41IiBmaWxsPSIjMEE2NkMyIi8%2BPGNpcmNsZSBjeD0iNi41IiBjeT0iNi4yIiByPSIxLjgiIGZpbGw9IiMwQTY2QzIiLz48cGF0aCBkPSJNMTAuNSA5LjVoMi45djEuNGMuNS0uOSAxLjYtMS43IDMuMi0xLjcgMi42IDAgMy40IDEuNiAzLjQgNC4yVjE5aC0zdi00LjljMC0xLjMtLjMtMi4zLTEuNi0yLjNzLTEuOSAxLTEuOSAyLjRWMTloLTN6IiBmaWxsPSIjMEE2NkMyIi8%2BPC9zdmc%2B"></a>
   <a href="https://x.com/naresh_swe24"><img alt="Twitter" src="https://img.shields.io/badge/Twitter-naresh__swe24-000000?style=flat-square&logo=x&logoColor=white"></a>
 </p>
 
@@ -58,7 +58,7 @@ Everything here is **built in public**. A number only appears once it’s measur
   <img alt="FIG. 2, the two problems as systems. Left, goodput: NCCL flight-recorder, DCGM/Xid and NIC/PFC counter evidence converge on a topology join that names the culprit rank and component, then the smallest safe recovery is chosen: communicator re-init, then node swap, then peer checkpoint restore. Right, kvwire: a compute-bound prefill pool streams KV-cache blocks over GPUDirect RDMA to a memory-bound decode pool, supervised by a coordinator that stays correct if the network fails mid-transfer." src="assets/systems-light.svg" width="100%">
 </picture>
 
-## One timeout, many causes
+## ⏱️ One timeout, many causes
 
 In NCCL, nearly every hardware fault ends the same way: a watchdog timeout on every rank. The engineering is in the last two columns: naming the one component, then choosing the cheapest recovery that is still safe.
 
@@ -71,11 +71,21 @@ In NCCL, nearly every hardware fault ends the same way: a watchdog timeout on ev
 | PFC pause storm | All ranks slow, **no errors anywhere** | Pause counters traced hop by hop to the port that paused first (FIG. 3 below) | Fix the origin (ECN / DCQCN thresholds, isolate port); restarting changes nothing |
 | Straggler (thermal / power throttling) | Step-time skew, no timeout | DCGM clock-throttle reasons, per-rank step time | Cordon at the next checkpoint boundary |
 
-## ▶️ Interactive notes: break things in your browser
+## 🤗 On Hugging Face: learning that table from ground truth
 
-Each one is a working simulator or calculator, with its model and assumptions stated. No hand-waved benchmarks.
+goodput's fault injector knows exactly what it broke, so every incident it produces is labeled by construction. Those incidents become a public benchmark and two models that plug back into goodput as its classifier, and have to beat its hand-written rules to earn the slot. Code: **[infra-incident-intel](https://github.com/nareshns2004/infra-incident-intel)**.
 
-| | Post | What you can do |
+| Artifact | What it does | Stage |
+|---|---|---|
+| `infra-failure-bench` · dataset | Multi-host incident windows with root cause, culprit and evidence lines. Test splits hold out cluster topologies, cascades (root ≠ loudest symptom) and real incidents | schema + split code, 27 tests · awaiting goodput export |
+| `infra-triage-modernbert` · [Space](https://huggingface.co/spaces/nareshns2004/infra-triage-demo) | Fast tier: root-cause class, the lines that prove it, calibrated resolve-or-escalate; milliseconds on CPU via ONNX | router, calibration, goodput `Verdict` adapter |
+| `infra-rca-qwen3-4b-lora` · [Space](https://huggingface.co/spaces/nareshns2004/infra-rca-demo) | Slow tier: grounded RCA naming culprit, causal chain and cited lines; GRPO on rewards a script can check (citations exist, category and culprit match the ledger) | output schema, grounding checks, rewards |
+
+## 🧪 Simulators & capacity models
+
+Each one runs in the browser, with its model and assumptions stated. No hand-waved benchmarks.
+
+| | Model | What it shows |
 |---|---|---|
 | 💥 | [**One dead link, 512 idle GPUs**](https://portfolio-webapp-roan.vercel.app/posts/ring-allreduce-failure.html) | Cut a link in a live ring all-reduce and watch every rank time out the same way |
 | 🔎 | [**Triaging an NCCL timeout**](https://portfolio-webapp-roan.vercel.app/posts/nccl-timeout-triage.html) | Four incident drills: find the culprit from flight-recorder, Xid and NIC evidence |
@@ -92,9 +102,9 @@ Each one is a working simulator or calculator, with its model and assumptions st
   <img alt="Where I work in the stack: L5 models & serving (PyTorch, vLLM, Hugging Face, CUDA, Triton kernels, KV cache); L4 collectives & orchestration (NCCL, DP/TP/PP, checkpoint-restart, Ray, Slurm, Kubernetes); L3 transport & fabric (RDMA verbs, RoCE v2, InfiniBand, GPUDirect RDMA, PFC/ECN, rail-optimized fabrics); L2 host datapath (Linux networking, eBPF/XDP, DPDK, SR-IOV, KVM/virtio, perf/ftrace); L1 hardware (NVIDIA GPUs, NVLink, RDMA NICs, PCIe); plus Docker, Prometheus, Grafana, DCGM and C, C++, Python, Go, Bash." src="assets/layers-light.svg" width="100%">
 </picture>
 
-<details>
-<summary><b>Skill → evidence map</b> (no self-ratings; every row links to the work)</summary>
-<br>
+### 🔗 Proof of work, by area
+
+No self-ratings: every row links to the work and states how far along it is.
 
 | Area | Evidence | Stage |
 |---|---|---|
@@ -106,9 +116,7 @@ Each one is a working simulator or calculator, with its model and assumptions st
 | eBPF / XDP / DPDK | [kernel-level-ai-traffic-shaper](https://github.com/nareshns2004/kernel-level-ai-traffic-shaper) · [packet path post](https://portfolio-webapp-roan.vercel.app/posts/packet-path.html) · [DPDK essay](https://nareshns2004.substack.com/p/intels-dpdk-the-userspace-data-plane) | early / write-up |
 | Virtualization (SR-IOV / KVM) | [virtualization essay](https://nareshns2004.substack.com/p/virtualization-the-foundation-of) | write-up |
 | Incident triage models | [infra-incident-intel](https://github.com/nareshns2004/infra-incident-intel) (calibrated classifier + grounded RCA, verifiable rewards) | contract + verifiers |
-| ML for infra ops | [6 RCA & failure-prediction models](https://huggingface.co/nareshns2004) (NCCL, GPU, network, Linux, Kubernetes logs) | published |
-
-</details>
+| ML for infra ops | [6 RCA & failure-prediction model cards](https://huggingface.co/nareshns2004) (NCCL, GPU, network, Linux, Kubernetes logs) | model cards (no weights yet) |
 
 ## 🛠️ Runnable today
 
