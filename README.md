@@ -35,6 +35,8 @@ Everything here is **built in public**. A number only appears once it’s measur
 
 **Status.** `M1 of 6` · design, interfaces and harness public · no results yet
 
+**Downstream.** **[infra-incident-intel](https://github.com/nareshns2004/infra-incident-intel)**: goodput's labeled incidents train two Hugging Face models that plug back in as its classifier: a calibrated, evidence-citing ModernBERT triage tier and a grounded Qwen3 + LoRA root-cause tier. `scaffold` · data contract and verifiers public
+
 </td>
 <td width="50%" valign="top">
 
@@ -103,6 +105,7 @@ Each one is a working simulator or calculator, with its model and assumptions st
 | GPU kernels (CUDA / Triton) | [custom-cuda-fused-attention-triton](https://github.com/nareshns2004/custom-cuda-fused-attention-triton) | early |
 | eBPF / XDP / DPDK | [kernel-level-ai-traffic-shaper](https://github.com/nareshns2004/kernel-level-ai-traffic-shaper) · [packet path post](https://portfolio-webapp-roan.vercel.app/posts/packet-path.html) · [DPDK essay](https://nareshns2004.substack.com/p/intels-dpdk-the-userspace-data-plane) | early / write-up |
 | Virtualization (SR-IOV / KVM) | [virtualization essay](https://nareshns2004.substack.com/p/virtualization-the-foundation-of) | write-up |
+| Incident triage models | [infra-incident-intel](https://github.com/nareshns2004/infra-incident-intel) (calibrated classifier + grounded RCA, verifiable rewards) | contract + verifiers |
 | ML for infra ops | [6 RCA & failure-prediction models](https://huggingface.co/nareshns2004) (NCCL, GPU, network, Linux, Kubernetes logs) | published |
 
 </details>
