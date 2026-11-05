@@ -4,7 +4,8 @@
     python3 scripts/build_assets.py
 
 Writes assets/hero-{light,dark}.svg, assets/layers-{light,dark}.svg and
-assets/systems-{light,dark}.svg and assets/pfc-{light,dark}.svg.
+assets/systems-{light,dark}.svg, assets/pfc-{light,dark}.svg and
+assets/security-{light,dark}.svg.
 Standard library only. Brand icon paths come from Simple Icons (CC0) and are
 cached in scripts/brand-icons.json; everything else is drawn here.
 
@@ -41,61 +42,83 @@ def esc(s):
 
 # ───────────────────────────── banner ─────────────────────────────
 
+def keyframes_window(name, a, b, cycle, show=1):
+    """CSS that shows `.name` from a% to b% of the cycle (step-end, so no fades)."""
+    frames = f"0% {{ opacity: {show if a == 0 else 0}; }}"
+    if a > 0:
+        frames += f" {a}% {{ opacity: {show}; }}"
+    if b < 100:
+        frames += f" {b}% {{ opacity: 0; }}"
+    return f".{name} {{ opacity: 0; animation: {name} {cycle}s step-end infinite; }} @keyframes {name} {{ {frames} }}"
+
+
 def banner(t):
-    W, H = 880, 300
+    W, H = 880, 364
     CX, CY, R = 712, 140, 88
     N = 8
-    cycle = 12  # seconds
+    cycle = 14  # seconds
     pos = [(CX + R * math.cos(-math.pi / 2 + 2 * math.pi * i / N),
             CY + R * math.sin(-math.pi / 2 + 2 * math.pi * i / N)) for i in range(N)]
 
-    # Timeline (% of the 12 s cycle): flow 0–40, link fails 40, stall spreads 41–60,
-    # all ranks time out 60–74, restore on spare 74–85, resume 85–100.
+    # Timeline (% of the 14 s cycle):
+    #   0–32 training · 32 link 2→3 fails · 38–48 stall spreads · 48–58 every rank times out
+    #   58–68 culprit named, restore onto a spare · 68–80 training resumes
+    #   80–94 an unattested host tries to join the communicator and is denied; training never stops
+    #   94–100 back to steady state
     css = [f"""
-    .k {{ font: 600 12.5px {MONO}; letter-spacing: .08em; fill: {t['graphite']}; }}
-    .h {{ font: 600 26px {SANS}; fill: {t['ink']}; letter-spacing: -.01em; }}
-    .s {{ fill: {t['copper']}; }} .r {{ fill: {t['signal']}; }}
-    .sub {{ font: 500 13px {MONO}; fill: {t['ink2']}; }}
+    .k {{ font: 700 12.5px {MONO}; letter-spacing: .12em; fill: {t['ink']}; }}
+    .k2 {{ font: 600 11.5px {MONO}; letter-spacing: .08em; fill: {t['graphite']}; }}
+    .h {{ font: 650 24px {SANS}; fill: {t['ink']}; letter-spacing: -.012em; }}
+    .s {{ fill: {t['copper']}; }} .r {{ fill: {t['signal']}; }} .f {{ fill: {t['fault']}; }}
+    .sub {{ font: 500 12.5px {MONO}; fill: {t['ink2']}; }}
     .node rect {{ fill: {t['paper']}; stroke: {t['ink']}; stroke-width: 1.4; }}
     .node text {{ font: 600 11px {MONO}; fill: {t['ink']}; text-anchor: middle; }}
     .edge {{ stroke: {t['ink']}; stroke-width: 1.3; }}
-    .lbl {{ font: 600 12px {MONO}; text-anchor: middle; opacity: 0; }}
-    .cap {{ font: 500 11px {MONO}; fill: {t['graphite']}; letter-spacing: .06em; }}
+    .lbl {{ font: 600 12px {MONO}; text-anchor: middle; }}
+    .cap {{ font: 600 11px {MONO}; fill: {t['graphite']}; letter-spacing: .06em; }}
     .pk {{ fill: {t['signal']}; }}
+    .grid {{ fill: {t['rule']}; }}
+    .led {{ fill: {t['signal']}; animation: led 1.6s ease-in-out infinite; }}
+    .ring {{ fill: none; stroke: {t['signal']}; stroke-width: 1.5; transform-box: fill-box; transform-origin: center;
+             animation: ping 1.6s ease-out infinite; }}
+    @keyframes led {{ 0%, 100% {{ fill-opacity: 1; }} 50% {{ fill-opacity: .35; }} }}
+    @keyframes ping {{ 0% {{ transform: scale(1); opacity: .8; }} 100% {{ transform: scale(2.6); opacity: 0; }} }}
+    .shim {{ animation: shim 5s ease-in-out infinite; }}
+    @keyframes shim {{ 0% {{ transform: translateX(-160px); }} 60%, 100% {{ transform: translateX(860px); }} }}
     .spin {{ transform-box: view-box; transform-origin: {CX}px {CY}px; animation: spin {cycle}s linear infinite; }}
-    @keyframes spin {{ 0% {{ transform: rotate(0deg); }} 40% {{ transform: rotate(225deg); }}
-                      85% {{ transform: rotate(225deg); }} 100% {{ transform: rotate(360deg); }} }}
+    @keyframes spin {{ 0% {{ transform: rotate(0deg); }} 32% {{ transform: rotate(180deg); }}
+                      68% {{ transform: rotate(180deg); }} 100% {{ transform: rotate(360deg); }} }}
     .bad {{ animation: bad {cycle}s step-end infinite; stroke: {t['ink']}; }}
-    @keyframes bad {{ 0% {{ stroke: {t['ink']}; stroke-dasharray: none; }} 40% {{ stroke: {t['fault']}; stroke-dasharray: 5 4; stroke-width: 2.2; }}
-                     85% {{ stroke: {t['ink']}; stroke-dasharray: none; stroke-width: 1.3; }} }}
-    .x {{ stroke: {t['fault']}; stroke-width: 2.6; opacity: 0; animation: x {cycle}s step-end infinite; }}
-    @keyframes x {{ 0% {{ opacity: 0; }} 40% {{ opacity: 1; }} 85% {{ opacity: 0; }} }}
+    @keyframes bad {{ 0% {{ stroke: {t['ink']}; stroke-dasharray: none; }} 32% {{ stroke: {t['fault']}; stroke-dasharray: 5 4; stroke-width: 2.2; }}
+                     68% {{ stroke: {t['ink']}; stroke-dasharray: none; stroke-width: 1.3; }} }}
+    .term {{ font: 500 11.5px {MONO}; fill: {t['ink2']}; }}
+    .tbg {{ fill: {t['paper2']}; }}
+    .cur {{ fill: {t['signal']}; animation: blink .9s step-end infinite; }}
+    @keyframes blink {{ 50% {{ fill-opacity: 0; }} }}
+    .rl {{ stroke: {t['fault']}; stroke-width: 1.6; stroke-dasharray: 4 3; animation: march .6s linear infinite; }}
+    @keyframes march {{ to {{ stroke-dashoffset: -14; }} }}
     """]
-    # ≤ 16 chars each so they fit between GPU6 and GPU2
-    labels = [("all ranks busy", t['graphite'], 0, 40), ("link 2→3 fails", t['fault'], 40, 46),
-              ("stall spreads", t['copper'], 46, 60), ("all 8 time out", t['fault'], 60, 74),
-              ("restore → spare", t['signal'], 74, 85), ("training resumes", t['graphite'], 85, 100)]
+    css.append(keyframes_window("x", 32, 68, cycle))
+    labels = [("all ranks busy", t['graphite'], 0, 32), ("link 2→3 fails", t['fault'], 32, 38),
+              ("stall spreads", t['copper'], 38, 48), ("all 8 time out", t['fault'], 48, 58),
+              ("restore → spare", t['signal'], 58, 68), ("training resumes", t['graphite'], 68, 80),
+              ("rogue peer: deny", t['fault'], 80, 94), ("all ranks busy", t['graphite'], 94, 100)]
     for i, (_, _, a, b) in enumerate(labels):
-        frames = f"0% {{ opacity: {1 if a == 0 else 0}; }}"
-        if a > 0:
-            frames += f" {a}% {{ opacity: 1; }}"
-        if b < 100:
-            frames += f" {b}% {{ opacity: 0; }}"
-        css.append(f".l{i} {{ animation: l{i} {cycle}s step-end infinite; }} @keyframes l{i} {{ {frames} }}")
-    # Per-node state: waiting (copper) as the stall reaches it, fault at timeout, back to ink on resume.
+        css.append(keyframes_window(f"l{i}", a, b, cycle))
+    # Per-node state: waiting (copper) as the stall reaches it, fault at timeout, back to ink on restore.
     order = [(3 + j) % N for j in range(N)]
     for j, n in enumerate(order):
-        start = 46 + j * 14 / N
+        start = 38 + j * 10 / N
         css.append(
             f".n{n} rect {{ animation: n{n} {cycle}s step-end infinite; }} "
             f"@keyframes n{n} {{ 0% {{ stroke: {t['ink']}; }} {start:.1f}% {{ stroke: {t['copper']}; stroke-dasharray: 4 3; }} "
-            f"60% {{ stroke: {t['fault']}; stroke-dasharray: none; }} 74% {{ stroke: {t['ink']}; }} }}")
-    # Spare swaps in for GPU3 during restore.
-    css.append(f".spare {{ opacity: 0; animation: spare {cycle}s step-end infinite; }} @keyframes spare {{ 0% {{ opacity: 0; }} 74% {{ opacity: 1; }} 100% {{ opacity: 1; }} }}"
-               f".orig {{ animation: orig {cycle}s step-end infinite; }} @keyframes orig {{ 0% {{ opacity: 1; }} 74% {{ opacity: 0; }} }}")
+            f"48% {{ stroke: {t['fault']}; stroke-dasharray: none; }} 58% {{ stroke: {t['ink']}; }} }}")
+    css.append(keyframes_window("spare", 58, 100, cycle))
+    css.append(keyframes_window("orig", 0, 58, cycle))
+    css.append(keyframes_window("rog", 80, 94, cycle))
     # Goodput bar: segments grow in their windows.
-    BX, BY, BW = 600, 258, 224
-    segs = [("blue", 0, 40), ("stall", 40, 74), ("restart", 74, 85), ("blue", 85, 100)]
+    BX, BY, BW = 600, 262, 224
+    segs = [("blue", 0, 32), ("stall", 32, 58), ("restart", 58, 68), ("blue", 68, 100)]
     bar = []
     for i, (kind, a, b) in enumerate(segs):
         x = BX + BW * a / 100
@@ -103,11 +126,34 @@ def banner(t):
         fill = {"blue": t['signal'], "stall": "url(#hatch)", "restart": t['fault']}[kind]
         css.append(f".g{i} {{ transform-box: fill-box; transform-origin: left center; animation: g{i} {cycle}s linear infinite; }}"
                    f"@keyframes g{i} {{ 0% {{ transform: scaleX(0); }} {a}% {{ transform: scaleX(0); }} {b}% {{ transform: scaleX(1); }} 100% {{ transform: scaleX(1); }} }}")
-        bar.append(f'<rect class="g{i}" x="{x:.1f}" y="{BY}" width="{w:.1f}" height="12" fill="{fill}"/>')
-    css.append("""@media (prefers-reduced-motion: reduce) {
-      .spin, .bad, .x, .lbl, .node rect, .spare, .orig, [class^="g"] { animation: none !important; }
-      .l4 { opacity: 1; } .spare { opacity: 1; } .orig { opacity: 0; }
-      .x { opacity: 0; } [class^="g"] { transform: none; } }""")
+        bar.append(f'<rect class="g{i}" x="{x:.1f}" y="{BY}" width="{w:.1f}" height="10" fill="{fill}"/>')
+
+    # Terminal strip: one line per phase, typed out at the start of its window.
+    TX, TY, TW = 24, 300, W - 48
+    term = [  # (prefix, prefix colour, text, a, b)
+        ("$", t['graphite'], "goodput watch --job llm-512   step 41,207 · 512/512 ranks healthy · fabric clean", 0, 32),
+        ("!", t['copper'], "rank 3 stopped posting sends · the ring stalls hop by hop · no error anywhere yet", 32, 48),
+        ("!", t['fault'], "nccl watchdog: ALLREDUCE seq=88213 timed out on 8/8 ranks · every rank looks guilty", 48, 58),
+        ("→", t['signal'], "culprit: rank 3 · mlx5_2/1 link_downed=1, symbol_err ↑ · swap → spare, peer-ckpt restore", 58, 68),
+        ("✓", t['signal'], "resumed at step 41,200 · one node replaced, no full-job restart", 68, 80),
+        ("✗", t['fault'], "denied: unattested host tried to join the communicator · no workload identity · logged", 80, 94),
+        ("$", t['graphite'], "goodput watch --job llm-512   step 41,388 · 512/512 ranks healthy · fabric clean", 94, 100),
+    ]
+    tl = []
+    for i, (p, pc, text, a, b) in enumerate(term):
+        css.append(keyframes_window(f"t{i}", a, b, cycle))
+        type_end = min(a + 6, b)
+        css.append(f".tc{i} {{ animation: tc{i} {cycle}s linear infinite; }} @keyframes tc{i} {{ 0% {{ transform: translateX(0); }}"
+                   f" {a}% {{ transform: translateX(0); animation-timing-function: steps(48); }} {type_end}% {{ transform: translateX({TW}px); }}"
+                   f" 100% {{ transform: translateX({TW}px); }} }}")
+        tl.append(f'<g class="t{i}"><text class="term" x="{TX+16}" y="{TY+27}"><tspan fill="{pc}" style="font-weight:700">{esc(p)}</tspan> {esc(text)}</text>'
+                  f'<g class="tc{i}"><rect class="tbg" x="{TX+30}" y="{TY+8}" width="{TW}" height="28"/>'
+                  f'<rect class="cur" x="{TX+30}" y="{TY+15}" width="7" height="14"/></g></g>')
+
+    css.append(f"""@media (prefers-reduced-motion: reduce) {{
+      * {{ animation: none !important; }}
+      .lbl, [class^="t"], .orig, .rog, .x {{ opacity: 0; }}
+      .l5, .t4, .spare {{ opacity: 1; }} [class^="tc"] {{ transform: translateX({TW}px); }} }}""")
 
     edges = []
     for i in range(N):
@@ -116,10 +162,10 @@ def banner(t):
         edges.append(f'<line class="{cls}" x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}"/>')
     (x1, y1), (x2, y2) = pos[2], pos[3]
     mx, my = (x1 + x2) / 2, (y1 + y2) / 2
-    edges.append(f'<path class="x" d="M{mx-6:.1f},{my-6:.1f} L{mx+6:.1f},{my+6:.1f} M{mx+6:.1f},{my-6:.1f} L{mx-6:.1f},{my+6:.1f}"/>')
+    edges.append(f'<path class="x" stroke="{t["fault"]}" stroke-width="2.6" d="M{mx-6:.1f},{my-6:.1f} L{mx+6:.1f},{my+6:.1f} M{mx+6:.1f},{my-6:.1f} L{mx-6:.1f},{my+6:.1f}"/>')
     packets = "".join(
         f'<circle class="pk" cx="{CX + R * 0.93 * math.cos(-math.pi / 2 + 2 * math.pi * (i + .5) / N):.1f}" '
-        f'cy="{CY + R * 0.93 * math.sin(-math.pi / 2 + 2 * math.pi * (i + .5) / N):.1f}" r="3.6"/>' for i in range(N))
+        f'cy="{CY + R * 0.93 * math.sin(-math.pi / 2 + 2 * math.pi * (i + .5) / N):.1f}" r="3.6" filter="url(#glow)"/>' for i in range(N))
     nodes = []
     for i, (x, y) in enumerate(pos):
         lab = f'<text x="{x:.1f}" y="{y+4:.1f}">GPU{i}</text>'
@@ -128,30 +174,176 @@ def banner(t):
         nodes.append(f'<g class="node n{i}"><rect x="{x-24:.1f}" y="{y-12:.1f}" width="48" height="24" rx="2"/>{lab}</g>')
     lbls = "".join(f'<text class="lbl l{i}" x="{CX}" y="{CY+18}" fill="{c}">{esc(s)}</text>' for i, (s, c, _, _) in enumerate(labels))
 
+    # Rogue host below GPU2: dashed join attempt, a shield in the way, denied.
+    gx, gy = pos[2]
+    RX, RY = 842, 204
+    sx, sy = (gx + 12 + RX) / 2, (gy + 12 + RY - 12) / 2
+    rogue = (f'<g class="rog"><line class="rl" x1="{RX:.1f}" y1="{RY-12}" x2="{gx+12:.1f}" y2="{gy+12:.1f}"/>'
+             f'<rect x="{RX-22}" y="{RY-12}" width="44" height="24" rx="2" fill="{t["paper"]}" stroke="{t["fault"]}" stroke-width="1.4" stroke-dasharray="3 2"/>'
+             f'<text x="{RX}" y="{RY+4}" text-anchor="middle" style="font:600 11px {MONO};fill:{t["fault"]}">??</text>'
+             f'<g transform="translate({sx-9:.1f} {sy-10:.1f})"><path d="M9 0 L18 3.5 V9.5 C18 15 14 18.5 9 20 C4 18.5 0 15 0 9.5 V3.5 Z" fill="{t["paper"]}" stroke="{t["signal"]}" stroke-width="1.8"/>'
+             f'<path d="M5.5 10 l2.5 2.5 l4.5 -5" fill="none" stroke="{t["signal"]}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g></g>')
+
+    dots = "".join(f'<circle class="grid" cx="{x}" cy="{y}" r=".9"/>' for x in range(584, 860, 16) for y in range(44, 252, 16))
+
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="t d">
-<title id="t">Naresh Kumar: GPU cluster networking and distributed-training infrastructure</title>
-<desc id="d">A GPU cluster is only as fast as its slowest link and as reliable as its weakest. I make it lose less time to both. An animated ring of eight GPUs loses a link, every rank stalls and times out, the job restores onto a spare and resumes; a goodput timeline records the cost.</desc>
-<defs><pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="{t['paper2']}"/><line x1="0" y1="0" x2="0" y2="5" stroke="{t['graphite']}" stroke-width="1.6"/></pattern></defs>
+<title id="t">Naresh Kumar: GPU cluster networking, distributed systems and secure AI infrastructure</title>
+<desc id="d">A GPU cluster is only as fast as its slowest link, as reliable as its weakest node and as safe as its least-watched path. An animated ring of eight GPUs loses a link, every rank times out, the culprit is named and the job restores onto a spare and resumes; then an unattested host tries to join the communicator and is denied while training continues. A terminal line narrates each step and a goodput bar records the cost.</desc>
+<defs>
+<pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="{t['paper2']}"/><line x1="0" y1="0" x2="0" y2="5" stroke="{t['graphite']}" stroke-width="1.6"/></pattern>
+<linearGradient id="acc" x1="0" x2="1"><stop offset="0" stop-color="{t['signal']}"/><stop offset=".55" stop-color="{t['copper']}"/><stop offset="1" stop-color="{t['fault']}"/></linearGradient>
+<linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<clipPath id="bar"><rect x="24" y="12" width="{W-48}" height="3" rx="1.5"/></clipPath>
+</defs>
 <style>{''.join(css)}</style>
 <rect x=".5" y=".5" width="{W-1}" height="{H-1}" rx="12" fill="{t['paper']}" stroke="{t['rule']}"/>
-<text class="k" x="36" y="48">NARESH KUMAR</text>
-<text class="k" x="36" y="68" style="font-weight:500">GPU CLUSTER NETWORKING · DISTRIBUTED-TRAINING INFRA</text>
+<g clip-path="url(#bar)"><rect x="24" y="12" width="{W-48}" height="3" fill="url(#acc)"/><rect class="shim" x="0" y="12" width="140" height="3" fill="url(#sh)"/></g>
+{dots}
+<text class="k" x="36" y="50">NARESH KUMAR</text>
+<circle class="ring" cx="172" cy="46" r="3.5"/><circle class="led" cx="172" cy="46" r="3.5"/>
+<text class="k2" x="183" y="50" style="fill:{t['signal']}">OPEN TO GPU INFRA ROLES</text>
+<text class="k2" x="36" y="72">GPU NETWORKING · DISTRIBUTED SYSTEMS · SECURE AI INFRA</text>
 <text class="h" x="36" y="116">A GPU cluster is only as fast as its</text>
-<text class="h" x="36" y="150"><tspan class="s">slowest link</tspan> and as reliable as its</text>
-<text class="h" x="36" y="184"><tspan class="r">weakest</tspan>. I make it lose less time</text>
-<text class="h" x="36" y="218">to both.</text>
-<text class="sub" x="36" y="262">Distributed Systems &amp; GPU Networking Engineering</text>
-<text class="sub" x="36" y="281" style="fill:{t['graphite']}">RDMA · RoCE · NCCL · DPDK · SR-IOV · KVM · eBPF</text>
-<line x1="560" y1="28" x2="560" y2="272" stroke="{t['rule']}"/>
-<text class="cap" x="580" y="30">FIG. 0 · RING ALL-REDUCE</text>
+<text class="h" x="36" y="148"><tspan class="s">slowest link</tspan>, as reliable as its <tspan class="r">weakest</tspan></text>
+<text class="h" x="36" y="180"><tspan class="r">node</tspan>, and as safe as its <tspan class="f">least-watched</tspan></text>
+<text class="h" x="36" y="212"><tspan class="f">path</tspan>. I build for all three.</text>
+<text class="sub" x="36" y="252">Find the one broken part. Recover the cheapest safe way.</text>
+<text class="sub" x="36" y="272" style="fill:{t['graphite']}">RDMA · RoCE · NCCL · DPDK · SR-IOV · KVM · eBPF · zero trust</text>
+<line x1="560" y1="28" x2="560" y2="282" stroke="{t['rule']}"/>
+<text class="cap" x="580" y="34">FIG. 0 · RING ALL-REDUCE (DEMO)</text>
 {''.join(edges)}
 <g class="spin">{packets}</g>
 {''.join(nodes)}
+{rogue}
 <text x="{CX}" y="{CY-2}" text-anchor="middle" style="font:500 11px {MONO};fill:{t['graphite']}">8 ranks</text>
 {lbls}
-<rect x="{BX}" y="{BY}" width="{BW}" height="12" fill="none" stroke="{t['rule2']}"/>
+<rect x="{BX}" y="{BY}" width="{BW}" height="10" fill="none" stroke="{t['rule2']}"/>
 {''.join(bar)}
-<text class="cap" x="{BX}" y="{BY+28}">GOODPUT · blue = training</text>
+<text class="cap" x="{BX}" y="{BY+24}">GOODPUT · blue = training</text>
+<rect x="{TX}" y="{TY}" width="{TW}" height="44" rx="6" fill="{t['paper2']}" stroke="{t['rule']}"/>
+{''.join(tl)}
+</svg>
+"""
+
+
+# ───────────────────────────── security ─────────────────────────────
+
+def security(t):
+    W, H = 880, 352
+    cycle = 14
+    # Phase A (0–48 %): the agent is fooled and its identity reaches everything.
+    # Phase B (52–100 %): the same agent is fooled the same way; the tool boundary stops it.
+    css = [f"""
+    .cap {{ font: 600 11px {MONO}; fill: {t['graphite']}; letter-spacing: .08em; }}
+    .box {{ fill: {t['paper2']}; stroke: {t['rule2']}; stroke-width: 1.2; }}
+    .bt {{ font: 600 11.5px {MONO}; fill: {t['ink']}; text-anchor: middle; }}
+    .bs {{ font: 500 10px {MONO}; fill: {t['graphite']}; text-anchor: middle; }}
+    .wire {{ fill: none; stroke: {t['rule2']}; stroke-width: 1.4; }}
+    .hit {{ fill: {t['fault']}; fill-opacity: .12; stroke: {t['fault']}; stroke-width: 2; }}
+    .ht {{ font: 700 10.5px {MONO}; fill: {t['fault']}; text-anchor: middle; letter-spacing: .04em; }}
+    .gate {{ fill: {t['signal']}; }}
+    .gl {{ font: 500 10.5px {MONO}; fill: {t['ink2']}; }}
+    .ph {{ font: 500 12px {MONO}; fill: {t['ink2']}; }}
+    .gh {{ font: 700 10.5px {MONO}; fill: {t['signal']}; letter-spacing: .06em; }}
+    .lead {{ stroke: {t['signal']}; stroke-width: 1; stroke-dasharray: 2 3; }}
+    .st {{ font: 600 12px {MONO}; }}
+    .foot {{ font: 600 13px {SANS}; fill: {t['ink']}; }}
+    .taint {{ fill: {t['fault']}; }}
+    """]
+    Y = 140                       # pipeline centre line
+    stages = [(30, "untrusted input", "log · ticket · doc"), (200, "AI agent", "LLM + tools"),
+              (370, "identity", "token · kubeconfig"), (540, "control plane", "k8s · Slurm · IAM")]
+    assets = [("model weights", "EXFILTRATED"), ("checkpoints", "BACKDOORED"),
+              ("training data", "POISONED"), ("GPU fabric", "SNIFFED")]
+    AY = [92, 128, 164, 200]
+    gates = [(345, "middle", 345, "TOOL BOUNDARY", "read-only tools · actions only via an allowlisted, audited executor"),
+             (515, "middle", 515, "IDENTITY", "short-lived per-task credentials · workload identity · no ambient admin"),
+             (695, "end", 850, "ARTIFACTS + FABRIC", "signed weights · segmented, encrypted fabric · attested GPUs")]
+
+    body = [f'<rect x=".5" y=".5" width="{W-1}" height="{H-1}" rx="12" fill="{t["paper"]}" stroke="{t["rule"]}"/>',
+            f'<text class="cap" x="30" y="34">FIG. 4 · ONE POISONED INPUT, TWO OUTCOMES</text>']
+    # phase status lines
+    css.append(keyframes_window("pa", 0, 50, cycle))
+    css.append(keyframes_window("pb", 50, 100, cycle))
+    body.append(f'<text class="st pa" x="30" y="58"><tspan fill="{t["fault"]}">UNDEFENDED</tspan>'
+                f'<tspan fill="{t["ink2"]}" dx="8">the agent is fooled, and its identity can reach everything</tspan></text>')
+    body.append(f'<text class="st pb" x="30" y="58"><tspan fill="{t["signal"]}">DEFENDED</tspan>'
+                f'<tspan fill="{t["ink2"]}" dx="8">the agent is fooled the same way, and nothing it can touch matters</tspan></text>')
+
+    # wires
+    for (x, _, _), (nx, _, _) in zip(stages, stages[1:]):
+        body.append(f'<path class="wire" d="M{x+120} {Y} H{nx}"/>')
+    for ay in AY:
+        body.append(f'<path class="wire" d="M660 {Y} C 690 {Y}, 700 {ay}, 730 {ay}"/>')
+    # stage boxes, with a "compromised" overlay per phase
+    hits_a = [2, 5, 14, 22]       # % at which the taint reaches each stage in phase A
+    hits_b = [54, 58]             # in phase B it reaches the input and the agent, then stops
+    for i, (x, name, sub) in enumerate(stages):
+        body.append(f'<rect class="box" x="{x}" y="{Y-28}" width="120" height="56" rx="6"/>'
+                    f'<text class="bt" x="{x+60}" y="{Y-4}">{esc(name)}</text><text class="bs" x="{x+60}" y="{Y+14}">{esc(sub)}</text>')
+        css.append(keyframes_window(f"sa{i}", hits_a[i], 48, cycle))
+        body.append(f'<rect class="hit sa{i}" x="{x}" y="{Y-28}" width="120" height="56" rx="6"/>')
+        if i < len(hits_b):
+            css.append(keyframes_window(f"sb{i}", hits_b[i], 100, cycle))
+            body.append(f'<rect class="hit sb{i}" x="{x}" y="{Y-28}" width="120" height="56" rx="6"/>')
+    body.append(f'<text class="ht sb1" x="260" y="{Y+44}">FOOLED</text>')
+    for i, ((name, verdict), ay) in enumerate(zip(assets, AY)):
+        body.append(f'<rect class="box" x="730" y="{ay-14}" width="120" height="28" rx="4"/>'
+                    f'<text class="bt" x="790" y="{ay+4}" style="font-weight:500">{esc(name)}</text>')
+        css.append(keyframes_window(f"av{i}", 36 + i, 48, cycle))
+        body.append(f'<g class="av{i}"><rect class="hit" x="730" y="{ay-14}" width="120" height="28" rx="4" style="fill:{t["paper"]};fill-opacity:1"/>'
+                    f'<rect class="hit" x="730" y="{ay-14}" width="120" height="28" rx="4"/>'
+                    f'<text class="ht" x="790" y="{ay+4}">{verdict}</text></g>')
+    # gates (phase B) with staggered labels
+    css.append(keyframes_window("gt", 50, 100, cycle))
+    g = ['<g class="gt">']
+    for k, (gx, anchor, tx, head, label) in enumerate(gates):
+        ly = 222 + k * 36
+        g.append(f'<rect class="gate" x="{gx-3}" y="{Y-36}" width="6" height="72" rx="3"/>'
+                 f'<line class="lead" x1="{gx}" y1="{Y+38}" x2="{gx}" y2="{ly-12}"/>'
+                 f'<text class="gh" x="{tx}" y="{ly}" style="text-anchor:{anchor}">{head}</text>'
+                 f'<text class="gl" x="{tx}" y="{ly+14}" style="text-anchor:{anchor}">{esc(label)}</text>')
+    g.append('</g>')
+    body.extend(g)
+    css.append(keyframes_window("blk", 62, 100, cycle))
+    body.append(f'<g class="blk"><circle cx="345" cy="{Y-48}" r="9" fill="{t["paper"]}" stroke="{t["fault"]}" stroke-width="1.8"/>'
+                f'<path d="M341 {Y-52} l8 8 M349 {Y-52} l-8 8" stroke="{t["fault"]}" stroke-width="1.8" stroke-linecap="round"/>'
+                f'<text class="ht" x="345" y="{Y-64}">DENIED · LOGGED</text></g>')
+    css.append(keyframes_window("ok", 64, 100, cycle))
+    body.append(f'<text class="ht ok" x="790" y="{AY[-1]+34}" style="fill:{t["signal"]}">0 / 4 REACHED</text>')
+    css.append(keyframes_window("bad", 40, 48, cycle))
+    body.append(f'<text class="ht bad" x="790" y="{AY[-1]+34}">4 / 4 REACHED</text>')
+
+    # the taint itself
+    x0 = 90
+    css.append(f".tm {{ animation: tm {cycle}s linear infinite; }} @keyframes tm {{"
+               f" 0% {{ transform: translateX(0); opacity: 0; }} 2% {{ transform: translateX(0); opacity: 1; }}"
+               f" 28% {{ transform: translateX({660 - x0}px); opacity: 1; }} 29% {{ transform: translateX({660 - x0}px); opacity: 0; }}"
+               f" 53% {{ transform: translateX(0); opacity: 0; }} 54% {{ transform: translateX(0); opacity: 1; }}"
+               f" 62% {{ transform: translateX({339 - x0}px); opacity: 1; }} 66% {{ transform: translateX({339 - x0}px); opacity: 1; }}"
+               f" 67% {{ opacity: 0; }} 100% {{ transform: translateX({339 - x0}px); opacity: 0; }} }}")
+    body.append(f'<circle class="taint tm" cx="{x0}" cy="{Y}" r="5" filter="url(#glow)"/>')
+    for i, ay in enumerate(AY):
+        css.append(f".tf{i} {{ animation: tf{i} {cycle}s linear infinite; }} @keyframes tf{i} {{ 0% {{ opacity: 0; transform: translate(0,0); }}"
+                   f" 28% {{ opacity: 0; transform: translate(0,0); }} 29% {{ opacity: 1; }} 36% {{ opacity: 1; transform: translate(70px,{ay - Y}px); }}"
+                   f" 37% {{ opacity: 0; }} 100% {{ opacity: 0; transform: translate(70px,{ay - Y}px); }} }}")
+        body.append(f'<circle class="taint tf{i}" cx="660" cy="{Y}" r="4" filter="url(#glow)"/>')
+
+    body.append(f'<g class="pa"><text class="ph" x="30" y="236">One injected sentence in a log line becomes <tspan fill="{t["fault"]}">kubectl</tspan>, <tspan fill="{t["fault"]}">scp</tspan> and a fabric tap.</text>'
+                f'<text class="ph" x="30" y="256">No exploit needed: the agent\'s permissions <tspan fill="{t["fault"]}">are</tspan> the blast radius.</text>'
+                f'<text class="ph" x="30" y="276" style="fill:{t["graphite"]}">RDMA bypasses the host kernel, so host firewalls and eBPF never see the fabric tap.</text></g>')
+    body.append(f'<text class="foot" x="30" y="332">Assume the model will be fooled. <tspan fill="{t["signal"]}">Design so that being fooled is cheap.</tspan></text>')
+    css.append("""@media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+      .pa, .bad, .taint, [class*="sa"], [class^="av"] { opacity: 0; }
+      .pb, .gt, .blk, .ok, .sb0, .sb1 { opacity: 1; } }""")
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="t d">
+<title id="t">One poisoned input, two outcomes</title>
+<desc id="d">An untrusted input (a log line, ticket or document) reaches an AI agent that holds infrastructure credentials. Undefended, the injected instruction flows through the agent's identity to the control plane and on to model weights, checkpoints, training data and the GPU fabric: four of four assets reached. Defended, the agent is fooled the same way, but a tool boundary (read-only tools, actions only through an allowlisted audited executor), short-lived per-task identity, and signed artifacts with a segmented, encrypted fabric and attested GPUs stop it at the first gate: zero of four reached. Assume the model will be fooled; design so that being fooled is cheap.</desc>
+<defs><filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<style>{''.join(css)}</style>
+{''.join(body)}
 </svg>
 """
 
@@ -493,6 +685,7 @@ def main():
         (OUT / f"layers-{theme}.svg").write_text(stack(t, theme))
         (OUT / f"systems-{theme}.svg").write_text(systems(t))
         (OUT / f"pfc-{theme}.svg").write_text(pfc(t))
+        (OUT / f"security-{theme}.svg").write_text(security(t))
     print("wrote", sorted(p.name for p in OUT.glob("*.svg")))
 
 
