@@ -3,7 +3,7 @@
 <a href="https://portfolio-webapp-roan.vercel.app">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
-    <img alt="A GPU cluster is only as fast as its slowest link and as reliable as its weakest. I make it lose less time to both. Animated: a ring of 8 GPUs loses a link, every rank times out, the job restores onto a spare and resumes." src="assets/hero-light.svg" width="100%">
+    <img alt="A GPU cluster is only as fast as its slowest link, as reliable as its weakest node, and as safe as its least-watched path. I build for all three. Animated: a ring of 8 GPUs loses a link, every rank times out, the culprit is named and the job restores onto a spare; then an unattested host tries to join the communicator and is denied while training continues." src="assets/hero-light.svg" width="100%">
   </picture>
 </a>
 
@@ -11,11 +11,11 @@
   <a href="https://portfolio-webapp-roan.vercel.app"><img alt="Website" src="https://img.shields.io/badge/naresh.infra-portfolio-1D4ED8?style=flat-square&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI%2BPGRlZnM%2BPGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI%2BPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMkY2M0YwIi8%2BPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMUQ0RUQ4Ii8%2BPC9saW5lYXJHcmFkaWVudD48L2RlZnM%2BPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9InVybCgjZykiLz48cGF0aCBkPSJNMTYuNSA0OCBWMjIgTTE2LjUgMzEgQzE2LjUgMjUgMjEuNSAyMS41IDI4IDIxLjUgQzM1LjUgMjEuNSAzOSAyNiAzOSAzMyBWNDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Y3RjVGMCIgc3Ryb2tlLXdpZHRoPSI3LjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNDMuNSIgcj0iNi41IiBmaWxsPSIjRjA5MzVDIi8%2BPC9zdmc%2B"></a>
   <a href="https://huggingface.co/nareshns2004"><img alt="Hugging Face" src="https://img.shields.io/badge/Hugging%20Face-models-FFD21E?style=flat-square&logo=huggingface&logoColor=black"></a>
   <a href="https://leetcode.com/u/nareshns2004/"><img alt="LeetCode" src="https://img.shields.io/badge/LeetCode-nareshns2004-FFA116?style=flat-square&logo=leetcode&logoColor=black"></a>
-  <a href="https://github.com/nareshns2004?tab=repositories"><img alt="GitHub repositories" src="https://img.shields.io/badge/GitHub-repositories-24292F?style=flat-square&logo=github&logoColor=white"></a>
 </p>
 
 <p align="center">
   <a href="#projects"><b>Projects</b></a> ·
+  <a href="#security"><b>Security</b></a> ·
   <a href="#simulators"><b>Simulators</b></a> ·
   <a href="#stack"><b>Stack</b></a> ·
   <a href="#proof-of-work"><b>Proof of work</b></a> ·
@@ -23,6 +23,14 @@
 </p>
 
 I’m **Naresh**, a **distributed systems and GPU networking engineer**. I work on the infrastructure that large-scale training and inference run on: kernel networking, RDMA/RoCE, DPDK, SR-IOV, KVM and NCCL. When a 512-GPU job stalls, the cause is usually one bad link, NIC or GPU, while every rank reports the same timeout. I build the infrastructure that finds that one component and gets training back fast, and that moves bytes between GPUs without wasting the hardware.
+
+I also design it to be **secure by construction**. The fastest paths in an AI cluster are the least watched: RDMA bypasses the host kernel, and AI agents now hold the credentials that reach it.
+
+**What I'd own on your team**
+
+- **Make failures attributable.** Turn "all 512 ranks timed out" into "rank 3, `mlx5_2`, bad optic", then take the cheapest recovery that is still safe.
+- **Keep the fabric fast under pressure.** RoCE congestion control (PFC, ECN, DCQCN), rail-optimized topologies, KV-cache transport for disaggregated inference.
+- **Close the blind spots.** Kernel-bypass traffic, agent credentials, and the checkpoint and model supply chain.
 
 Everything here is **built in public**. A number only appears once it’s measured and linked to its run.
 
@@ -79,6 +87,26 @@ In NCCL, nearly every hardware fault ends the same way: a watchdog timeout on ev
 | PFC pause storm | All ranks slow, **no errors anywhere** | Pause counters traced hop by hop to the port that paused first (FIG. 3 below) | Fix the origin (ECN / DCQCN thresholds, isolate port); restarting changes nothing |
 | Straggler (thermal / power throttling) | Step-time skew, no timeout | DCGM clock-throttle reasons, per-rank step time | Cordon at the next checkpoint boundary |
 
+<a id="security"></a>
+
+## 🛡️ The fast path is the blind path
+
+An AI agent with a kubeconfig is a remote shell that takes instructions from whatever it reads. One injected sentence in a log line, ticket or web page is enough. No exploit is needed, because **the agent's permissions are the blast radius**. Underneath it, the GPU fabric is where host security sees least: RDMA and GPUDirect bypass the kernel, so host firewalls, eBPF and host IDS never see that traffic, and NCCL has no built-in encryption or peer authentication. In a cluster where model weights are the crown jewels, I treat security as a property of the infrastructure, not a layer added afterwards.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/security-dark.svg">
+  <img alt="FIG. 4, one poisoned input, two outcomes. An untrusted input reaches an AI agent holding infrastructure credentials. Undefended, the injected instruction flows through the agent's identity to the control plane and reaches model weights, checkpoints, training data and the GPU fabric: 4 of 4. Defended, the agent is fooled the same way but a tool boundary, short-lived per-task identity, and signed artifacts with a segmented, encrypted fabric and attested GPUs stop it at the first gate: 0 of 4. Assume the model will be fooled; design so that being fooled is cheap." src="assets/security-light.svg" width="100%">
+</picture>
+
+| Layer | What goes wrong | Why AI makes it worse | Control I design for |
+|---|---|---|---|
+| Agents & tools | Prompt injection steers an agent that can run `kubectl`, `sbatch` or cloud APIs | The agent reads untrusted text all day and acts at machine speed | Read-only tools by default. Mutations go through an allowlisted, audited executor; destructive actions need a human |
+| Identity | Long-lived tokens, shared service accounts, ambient admin | One leaked token reaches every node, bucket and checkpoint | Workload identity, short-lived per-task credentials, deny by default |
+| Fabric (RDMA / RoCE / NCCL) | Kernel bypass hides traffic from host controls. Collectives cross the fabric in plaintext. A leaked `rkey` grants remote memory access | Gradients, activations and KV cache are the model, in transit | Per-tenant isolation (IB partition keys, VRF per tenant), scoped and revocable memory windows, inline MACsec/IPsec on NICs that offload it, telemetry at the NIC/DPU because the host can't see it |
+| Multi-tenant inference | Shared prefix caches leak prompts through timing. GPU memory outlives the job | Serving is multi-tenant by default | Per-tenant cache isolation, scrub on reassignment, MIG or confidential computing (Hopper/Blackwell CC mode) where the threat model needs it |
+| Artifacts | Pickled checkpoints run code on load. Unsigned weights and datasets | One tampered checkpoint is restored onto every replica | `safetensors` / `weights_only=True`, signed and hashed checkpoints, dataset provenance |
+| My own tooling | goodput's RCA model is itself an agent touching production | Same risk as above, on the infrastructure itself | It **recommends, never acts**: it sees read-only evidence, and recovery runs only through goodput's allowlisted executor `planned` |
+
 <a id="hugging-face"></a>
 
 ## 🤗 On Hugging Face: learning that table from ground truth
@@ -130,6 +158,7 @@ No self-ratings: every row links to the work and states how far along it is.
 | Inference serving | [kvwire](https://github.com/nareshns2004/disaggregated-inference-engine) · [high-performance-llm-inference-engine](https://github.com/nareshns2004/high-performance-llm-inference-engine) · [KV-cache post](https://portfolio-webapp-roan.vercel.app/posts/kv-cache-transfer.html) | early |
 | GPU kernels (CUDA / Triton) | [custom-cuda-fused-attention-triton](https://github.com/nareshns2004/custom-cuda-fused-attention-triton) | early |
 | eBPF / XDP / DPDK | [kernel-level-ai-traffic-shaper](https://github.com/nareshns2004/kernel-level-ai-traffic-shaper) · [packet path post](https://portfolio-webapp-roan.vercel.app/posts/packet-path.html) | early / write-up |
+| Secure AI infrastructure | [threat model and controls](#security) · goodput's read-only RCA tier and allowlisted recovery executor | design |
 | Incident triage models | [qwen3-nccl-rca-lora](https://huggingface.co/nareshns2004/qwen3-nccl-rca-lora) (grounded NCCL root-cause analysis, verifiable rewards) | model card (no weights yet) |
 
 <a id="runnable"></a>
@@ -147,6 +176,6 @@ No self-ratings: every row links to the work and states how far along it is.
 <br>
 
 <p align="center">
-  <img alt="Open to GPU networking, training infrastructure and inference platform roles" src="https://img.shields.io/badge/open%20to-GPU%20networking%20%C2%B7%20training%20infra%20%C2%B7%20inference%20platforms-1D4ED8?style=flat-square"><br>
+  <img alt="Open to GPU networking, training infrastructure, inference platform and secure AI infrastructure roles" src="https://img.shields.io/badge/open%20to-GPU%20networking%20%C2%B7%20training%20infra%20%C2%B7%20inference%20platforms%20%C2%B7%20secure%20AI%20infra-1D4ED8?style=flat-square"><br>
   <sub>USA · Canada · Europe · reach me through <a href="https://portfolio-webapp-roan.vercel.app">the portfolio</a></sub>
 </p>
