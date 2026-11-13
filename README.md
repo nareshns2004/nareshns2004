@@ -43,7 +43,7 @@ Everything here is **built in public**. A number only appears once it’s measur
 <td width="50%" valign="top">
 
 ### 🔵 Reliability at scale
-**[goodput](https://github.com/nareshns2004/fault-tolerant-training-orchestrator)**: fault attribution & recovery for multi-node training
+**[goodput](https://github.com/nareshns2004/goodput-fault-tolerant-training-orchestrator)**: fault attribution & recovery for multi-node training
 
 **Problem.** One bad GPU, NIC, cable or switch port stalls a collective, and *every* rank times out the same way. Stock tooling detects in minutes, attributes nothing, and restarts the whole job.
 
@@ -51,19 +51,21 @@ Everything here is **built in public**. A number only appears once it’s measur
 
 **Status.** `M1 of 6` · design, interfaces and harness public · no results yet
 
-**Downstream.** goodput's labeled incidents will train two Hugging Face models that plug back in as its classifier: a calibrated, evidence-citing ModernBERT triage tier and a grounded Qwen3 + LoRA root-cause tier ([see below](#hugging-face)). `planned`
+**Downstream.** goodput's labeled incidents train one Hugging Face model, a Qwen3 + LoRA root-cause tier that cites its evidence, demoed in a Space with a signature-matching fast tier ([see below](#hugging-face)). `planned`
 
 </td>
 <td width="50%" valign="top">
 
 ### 🟠 Efficiency at scale
-**[kvwire](https://github.com/nareshns2004/disaggregated-inference-engine)**: RDMA KV-cache transport for disaggregated inference
+**[kvwire](https://github.com/nareshns2004/kvwire-disaggregated-inference-engine)**: RDMA KV-cache transport for disaggregated inference
 
 **Problem.** Prefill is compute-bound and decode is memory-bound. Colocated, they interfere: prefills spike TPOT, decodes spike TTFT.
 
 **Approach.** Split them onto separate GPU pools, and make the part in between fast and safe: a GPUDirect RDMA transport, a Triton KV re-layout kernel (kept only if the data justifies it), and a coordinator that stays correct when the network fails mid-transfer. Plugs into vLLM through its KV-connector interface.
 
 **Status.** `M1` · baselines and hardware ceilings first
+
+**Downstream.** kvwire's measured runs become a public Hugging Face dataset of RDMA KV-transfer traces, explored in a Space that answers "move the KV cache or recompute it?" from measured rows only ([see below](#hugging-face)). `planned`
 
 </td>
 </tr>
@@ -109,15 +111,16 @@ An AI agent with a kubeconfig is a remote shell that takes instructions from wha
 
 <a id="hugging-face"></a>
 
-## 🤗 On Hugging Face: learning that table from ground truth
+## 🤗 On Hugging Face: built only from the two repos' data
 
-goodput's fault injector knows exactly what it broke, so every incident it produces is labeled by construction. Those incidents become a public benchmark and two models that plug back into goodput as its classifier, and have to beat its hand-written rules to earn the slot. Models live on **[huggingface.co/nareshns2004](https://huggingface.co/nareshns2004)**.
+Each GitHub project feeds one Hugging Face project, and nothing is published until the repo has produced real, labeled data. Everything lives on **[huggingface.co/nareshns2004](https://huggingface.co/nareshns2004)**.
 
-| Artifact | What it does | Stage |
-|---|---|---|
-| `infra-failure-bench` · dataset | Multi-host incident windows with root cause, culprit and evidence lines. Test splits hold out cluster topologies, cascades (root ≠ loudest symptom) and real incidents | design · awaiting goodput export |
-| `infra-triage-modernbert` | Fast tier: root-cause class, the lines that prove it, calibrated resolve-or-escalate; milliseconds on CPU via ONNX | design |
-| [`qwen3-nccl-rca-lora`](https://huggingface.co/nareshns2004/qwen3-nccl-rca-lora) | Slow tier: grounded RCA naming culprit, causal chain and cited lines; GRPO on rewards a script can check (citations exist, category and culprit match the ledger) | model card (no weights yet) |
+| Artifact | Built from | What it does | Stage |
+|---|---|---|---|
+| [`nccl-incident-rca`](https://huggingface.co/spaces/nareshns2004/nccl-incident-rca) · Space | goodput | Fast tier: root-cause an NCCL/RDMA incident by signature matching over flight-recorder, Xid and NIC evidence | status page · awaiting goodput M3 |
+| [`qwen3-nccl-rca-lora`](https://huggingface.co/nareshns2004/qwen3-nccl-rca-lora) · model | goodput | Slow tier: structured verdict (fault class, culprit, cited evidence ids), scored automatically against the fault ledger. Ships only if it beats goodput's rules, the zero-shot base model and a majority baseline. Its labeled incidents ship inside the model repo | model card (no weights yet) |
+| [`rdma-kv-transfer-traces`](https://huggingface.co/datasets/nareshns2004/rdma-kv-transfer-traces) · dataset | kvwire | Measured KV-cache transfers over RDMA, each next to its perftest ceiling, plus prefill timings and per-layer timelines. CC-BY-4.0 | dataset card · v0 after kvwire's ceiling sweep |
+| [`disagg-kv-explorer`](https://huggingface.co/spaces/nareshns2004/disagg-kv-explorer) · Space | kvwire | Efficiency vs message size, transfer vs recompute, break-even and exposed transfer, from measured rows only | status page · awaiting data |
 
 <a id="simulators"></a>
 
@@ -152,14 +155,15 @@ No self-ratings: every row links to the work and states how far along it is.
 
 | Area | Evidence | Stage |
 |---|---|---|
-| Collectives & NCCL | [goodput](https://github.com/nareshns2004/fault-tolerant-training-orchestrator) · [distributed-training-framework-nccl](https://github.com/nareshns2004/distributed-training-framework-nccl) · [ring all-reduce post](https://portfolio-webapp-roan.vercel.app/posts/ring-allreduce-failure.html) | design + harness |
-| RDMA / RoCE / PFC | [nicprof](https://github.com/nareshns2004/ai-nic-performance-profiler) · [kvwire](https://github.com/nareshns2004/disaggregated-inference-engine) · [PFC post](https://portfolio-webapp-roan.vercel.app/posts/pfc-deadlock.html) | runnable |
+| Collectives & NCCL | [goodput](https://github.com/nareshns2004/goodput-fault-tolerant-training-orchestrator) · [distributed-training-framework-nccl](https://github.com/nareshns2004/distributed-training-framework-nccl) · [ring all-reduce post](https://portfolio-webapp-roan.vercel.app/posts/ring-allreduce-failure.html) | design + harness |
+| RDMA / RoCE / PFC | [nicprof](https://github.com/nareshns2004/ai-nic-performance-profiler) · [kvwire](https://github.com/nareshns2004/kvwire-disaggregated-inference-engine) · [PFC post](https://portfolio-webapp-roan.vercel.app/posts/pfc-deadlock.html) | runnable |
 | Linux kernel performance | [kptk](https://github.com/nareshns2004/kernel-performance-toolkit) | runnable |
-| Inference serving | [kvwire](https://github.com/nareshns2004/disaggregated-inference-engine) · [high-performance-llm-inference-engine](https://github.com/nareshns2004/high-performance-llm-inference-engine) · [KV-cache post](https://portfolio-webapp-roan.vercel.app/posts/kv-cache-transfer.html) | early |
-| GPU kernels (CUDA / Triton) | [custom-cuda-fused-attention-triton](https://github.com/nareshns2004/custom-cuda-fused-attention-triton) | early |
+| Inference serving | [kvwire](https://github.com/nareshns2004/kvwire-disaggregated-inference-engine) · [high-performance-llm-inference-engine](https://github.com/nareshns2004/high-performance-llm-inference-engine) · [KV-cache post](https://portfolio-webapp-roan.vercel.app/posts/kv-cache-transfer.html) | early |
+| GPU kernels (CUDA / Triton) | [kvwire KV re-layout kernel](https://github.com/nareshns2004/kvwire-disaggregated-inference-engine/tree/main/kernels) · [custom-cuda-fused-attention-triton](https://github.com/nareshns2004/custom-cuda-fused-attention-triton) | early |
 | eBPF / XDP / DPDK | [kernel-level-ai-traffic-shaper](https://github.com/nareshns2004/kernel-level-ai-traffic-shaper) · [packet path post](https://portfolio-webapp-roan.vercel.app/posts/packet-path.html) | early / write-up |
 | Secure AI infrastructure | [threat model and controls](#security) · goodput's read-only RCA tier and allowlisted recovery executor | design |
-| Incident triage models | [qwen3-nccl-rca-lora](https://huggingface.co/nareshns2004/qwen3-nccl-rca-lora) (grounded NCCL root-cause analysis, verifiable rewards) | model card (no weights yet) |
+| Incident triage models | [qwen3-nccl-rca-lora](https://huggingface.co/nareshns2004/qwen3-nccl-rca-lora) (grounded NCCL root-cause analysis, verifiable rewards) · [nccl-incident-rca Space](https://huggingface.co/spaces/nareshns2004/nccl-incident-rca) | model card (no weights yet) |
+| KV-transfer measurements | [rdma-kv-transfer-traces](https://huggingface.co/datasets/nareshns2004/rdma-kv-transfer-traces) · [disagg-kv-explorer Space](https://huggingface.co/spaces/nareshns2004/disagg-kv-explorer) | planned (after kvwire's ceiling sweep) |
 
 <a id="runnable"></a>
 
