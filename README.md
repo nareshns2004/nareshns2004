@@ -178,3 +178,22 @@ No self-ratings: every row links to the work and states how far along it is.
   <source media="(prefers-color-scheme: dark)" srcset="assets/pfc-dark.svg">
   <img alt="FIG. 3, PFC pause propagation. Hosts H0 to H3 send incast traffic through leaf A, a spine and leaf B to one receiver; H4 sends an unrelated flow to R2. Leaf B's egress queue toward the incast receiver fills and PFC pause frames propagate upstream hop by hop to every host. H4's flow stalls although it never touches the congested port: it is a victim. The origin is the leaf B egress port, which nicprof finds by following pause counters back hop by hop." src="assets/pfc-light.svg" width="100%">
 </picture>
+
+<a id="open-to-roles"></a>
+
+## 🤝 Open to roles
+
+![Open to roles](https://img.shields.io/badge/status-open%20to%20roles-2E7D32?style=flat-square)
+
+**Building training or inference clusters that have to be fast _and_ safe? Let’s talk.**
+
+I’m looking for GPU cluster networking, distributed-training infrastructure, inference-platform and AI-infrastructure security roles at AI labs and infra teams.
+
+| Role | Proof of work |
+|---|---|
+| GPU cluster networking | [nicprof: NIC counters to step time ↗](https://github.com/nareshns2004/ai-nic-performance-profiler) |
+| Distributed-training infrastructure | [goodput: fault attribution & recovery ↗](https://github.com/nareshns2004/goodput-fault-tolerant-training-orchestrator) |
+| Inference platforms | [kvwire: RDMA KV-cache transport ↗](https://github.com/nareshns2004/kvwire-disaggregated-inference-engine) |
+| AI-infrastructure security | [Field guide: AI-infra breaches →](https://portfolio-webapp-roan.vercel.app/posts/ai-infra-breaches.html) |
+
+**Open to roles in:** `USA` · `Canada` · `Europe`
