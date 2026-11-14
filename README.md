@@ -91,7 +91,7 @@ In NCCL, nearly every hardware fault ends the same way: a watchdog timeout on ev
 
 <a id="security"></a>
 
-## 🛡️ The fast path is the blind path
+## 🛡️ Securing the fast path
 
 An AI agent with a kubeconfig is a remote shell that takes instructions from whatever it reads. One injected sentence in a log line, ticket or web page is enough. No exploit is needed, because **the agent's permissions are the blast radius**. Underneath it, the GPU fabric is where host security sees least: RDMA and GPUDirect bypass the kernel, so host firewalls, eBPF and host IDS never see that traffic, and NCCL has no built-in encryption or peer authentication. In a cluster where model weights are the crown jewels, I treat security as a property of the infrastructure, not a layer added afterwards.
 
@@ -111,9 +111,9 @@ An AI agent with a kubeconfig is a remote shell that takes instructions from wha
 
 <a id="hugging-face"></a>
 
-## 🤗 On Hugging Face: built only from the two repos' data
+## 🤗 On Hugging Face: built only from data in my two repos
 
-Each GitHub project feeds one Hugging Face project, and nothing is published until the repo has produced real, labeled data. Everything lives on **[huggingface.co/nareshns2004](https://huggingface.co/nareshns2004)**.
+Each GitHub project feeds one Hugging Face project, and nothing is published until the repo has produced real, labeled data.
 
 | Artifact | Built from | What it does | Stage |
 |---|---|---|---|
@@ -176,10 +176,3 @@ No self-ratings: every row links to the work and states how far along it is.
   <source media="(prefers-color-scheme: dark)" srcset="assets/pfc-dark.svg">
   <img alt="FIG. 3, PFC pause propagation. Hosts H0 to H3 send incast traffic through leaf A, a spine and leaf B to one receiver; H4 sends an unrelated flow to R2. Leaf B's egress queue toward the incast receiver fills and PFC pause frames propagate upstream hop by hop to every host. H4's flow stalls although it never touches the congested port: it is a victim. The origin is the leaf B egress port, which nicprof finds by following pause counters back hop by hop." src="assets/pfc-light.svg" width="100%">
 </picture>
-
-<br>
-
-<p align="center">
-  <img alt="Open to GPU networking, training infrastructure, inference platform and secure AI infrastructure roles" src="https://img.shields.io/badge/open%20to-GPU%20networking%20%C2%B7%20training%20infra%20%C2%B7%20inference%20platforms%20%C2%B7%20secure%20AI%20infra-1D4ED8?style=flat-square"><br>
-  <sub>USA · Canada · Europe · reach me through <a href="https://portfolio-webapp-roan.vercel.app">the portfolio</a></sub>
-</p>
