@@ -195,3 +195,7 @@ I’m looking for GPU cluster networking, distributed-training infrastructure, i
 | **AI Infrastructure Security Engineer**<br>Agents holding cluster credentials, collectives crossing the fabric in plaintext, checkpoints restored unsigned? I build controls into identity, the fabric and the artifact pipeline, so model weights and training data stay protected without slowing the fast path. |
 
 **Open to roles in:** `USA` · `Canada` · `Europe`
+
+<p>
+  <img alt="Profile visitors" src="https://komarev.com/ghpvc/?username=nareshns2004&label=Profile%20visitors&color=1D4ED8&style=flat-square">
+</p>
