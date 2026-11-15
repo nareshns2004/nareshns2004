@@ -183,17 +183,15 @@ No self-ratings: every row links to the work and states how far along it is.
 
 ## 🤝 Open to roles
 
-![Open to roles](https://img.shields.io/badge/status-open%20to%20roles-2E7D32?style=flat-square)
-
 **Building training or inference clusters that have to be fast _and_ safe? Let’s talk.**
 
 I’m looking for GPU cluster networking, distributed-training infrastructure, inference-platform and AI-infrastructure security roles at AI labs and infra teams.
 
-| Role | Proof of work |
-|---|---|
-| GPU cluster networking | [nicprof: NIC counters to step time ↗](https://github.com/nareshns2004/ai-nic-performance-profiler) |
-| Distributed-training infrastructure | [goodput: fault attribution & recovery ↗](https://github.com/nareshns2004/goodput-fault-tolerant-training-orchestrator) |
-| Inference platforms | [kvwire: RDMA KV-cache transport ↗](https://github.com/nareshns2004/kvwire-disaggregated-inference-engine) |
-| AI-infrastructure security | [Field guide: AI-infra breaches →](https://portfolio-webapp-roan.vercel.app/posts/ai-infra-breaches.html) |
+| Role |
+|---|
+| **GPU Cluster Networking Engineer**<br>Collectives running slower than your fabric should allow, or every rank stalling with no error anywhere? I tune RoCE/InfiniBand fabrics (PFC, ECN, DCQCN, rail-optimized topologies) and trace each slowdown to the exact port that caused it, so GPU-hours go to compute instead of waiting on the network. |
+| **Distributed Training Infrastructure Engineer**<br>Losing hours to "all ranks timed out" and full-job restarts? I make failures attributable to one rank and one component, then recover with the smallest safe action, so training goodput holds up as you scale to thousands of GPUs. |
+| **Inference Platform Engineer**<br>Prefill and decode fighting over the same GPUs, with TTFT and TPOT both suffering? I build disaggregated serving with fast RDMA KV-cache transfer, raising throughput per GPU and lowering cost per token while staying inside your latency SLOs. |
+| **AI Infrastructure Security Engineer**<br>Agents holding cluster credentials, collectives crossing the fabric in plaintext, checkpoints restored unsigned? I build controls into identity, the fabric and the artifact pipeline, so model weights and training data stay protected without slowing the fast path. |
 
 **Open to roles in:** `USA` · `Canada` · `Europe`
