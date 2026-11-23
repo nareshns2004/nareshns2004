@@ -10,8 +10,6 @@
 <p align="center">
   <a href="https://huggingface.co/nareshns2004"><img alt="Hugging Face" src="https://img.shields.io/badge/Hugging%20Face-models-FFD21E?style=flat-square&logo=huggingface&logoColor=black"></a>
   <a href="https://leetcode.com/u/nareshns2004/"><img alt="LeetCode" src="https://img.shields.io/badge/LeetCode-nareshns2004-FFA116?style=flat-square&logo=leetcode&logoColor=black"></a>
-  <a href="mailto:nareshns2004@gmail.com"><img alt="Gmail: nareshns2004@gmail.com" src="https://img.shields.io/badge/Gmail-nareshns2004%40gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white"></a>
-  <a href="https://discord.com/invite/WHtQAnRJ98"><img alt="Discord" src="https://img.shields.io/badge/Discord-join%20the%20server-5865F2?style=flat-square&logo=discord&logoColor=white"></a>
   <a href="https://portfolio-webapp-roan.vercel.app"><img alt="Portfolio: secure AI/ML infrastructure" src="https://img.shields.io/badge/portfolio-secure%20AI%2FML%20infra-1D4ED8?style=flat-square&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI%2BPGRlZnM%2BPGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI%2BPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMkY2M0YwIi8%2BPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMUQ0RUQ4Ii8%2BPC9saW5lYXJHcmFkaWVudD48L2RlZnM%2BPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9InVybCgjZykiLz48cGF0aCBkPSJNMTYuNSA0OCBWMjIgTTE2LjUgMzEgQzE2LjUgMjUgMjEuNSAyMS41IDI4IDIxLjUgQzM1LjUgMjEuNSAzOSAyNiAzOSAzMyBWNDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Y3RjVGMCIgc3Ryb2tlLXdpZHRoPSI3LjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNDMuNSIgcj0iNi41IiBmaWxsPSIjRjA5MzVDIi8%2BPC9zdmc%2B"></a>
 </p>
 
@@ -51,7 +49,7 @@ Everything here is **built in public**. A number only appears once it’s measur
 
 **Approach.** Fault injection with a ground-truth ledger, NCCL flight-recorder signatures, DCGM and NIC telemetry joined on the topology to name the **culprit rank and component**, then the smallest safe recovery: in-process communicator re-init, single-node replacement, peer in-memory checkpoints.
 
-**Status.** `M1 of 6` · design, interfaces and harness public · no results yet
+**Status.** `M1a of 6` · pre-alpha · design, interfaces, schemas and harness public · no results yet
 
 **Downstream.** goodput's labeled incidents train one Hugging Face model, a Qwen3 + LoRA root-cause tier that cites its evidence, demoed in a Space with a signature-matching fast tier ([see below](#hugging-face)). `planned`
 
@@ -65,7 +63,7 @@ Everything here is **built in public**. A number only appears once it’s measur
 
 **Approach.** Split them onto separate GPU pools, and make the part in between fast and safe: a GPUDirect RDMA transport, a Triton KV re-layout kernel (kept only if the data justifies it), and a coordinator that stays correct when the network fails mid-transfer. Plugs into vLLM through its KV-connector interface.
 
-**Status.** `M1` · baselines and hardware ceilings first
+**Status.** `M1` · pre-alpha · baselines, perftest hardware ceilings and a prior-art gate (NIXL, Mooncake) first
 
 **Downstream.** kvwire's measured runs become a public Hugging Face dataset of RDMA KV-transfer traces, explored in a Space that answers "move the KV cache or recompute it?" from measured rows only ([see below](#hugging-face)). `planned`
 
@@ -157,12 +155,12 @@ No self-ratings: every row links to the work and states how far along it is.
 
 | Area | Evidence | Stage |
 |---|---|---|
-| Collectives & NCCL | [goodput](https://github.com/nareshns2004/goodput-fault-tolerant-training-orchestrator) · [distributed-training-framework-nccl](https://github.com/nareshns2004/distributed-training-framework-nccl) · [ring all-reduce post](https://portfolio-webapp-roan.vercel.app/posts/ring-allreduce-failure.html) | design + harness |
-| RDMA / RoCE / PFC | [nicprof](https://github.com/nareshns2004/ai-nic-performance-profiler) · [kvwire](https://github.com/nareshns2004/kvwire-disaggregated-inference-engine) · [PFC post](https://portfolio-webapp-roan.vercel.app/posts/pfc-deadlock.html) | runnable |
+| Collectives & NCCL | [goodput](https://github.com/nareshns2004/goodput-fault-tolerant-training-orchestrator) · [fault-aware NCCL layer](https://github.com/nareshns2004/distributed-training-framework-nccl) (design + ADRs; build follows goodput M2) · [ring all-reduce post](https://portfolio-webapp-roan.vercel.app/posts/ring-allreduce-failure.html) | design + harness |
+| RDMA / RoCE / PFC | [nicprof](https://github.com/nareshns2004/ai-nic-performance-profiler) · [kvwire](https://github.com/nareshns2004/kvwire-disaggregated-inference-engine) · [PFC post](https://portfolio-webapp-roan.vercel.app/posts/pfc-deadlock.html) | runnable (simulator results; hardware runs scripted) |
 | Linux kernel performance | [kptk](https://github.com/nareshns2004/kernel-performance-toolkit) | runnable |
-| Inference serving | [kvwire](https://github.com/nareshns2004/kvwire-disaggregated-inference-engine) · [high-performance-llm-inference-engine](https://github.com/nareshns2004/high-performance-llm-inference-engine) · [KV-cache post](https://portfolio-webapp-roan.vercel.app/posts/kv-cache-transfer.html) | early |
-| GPU kernels (CUDA / Triton) | [kvwire KV re-layout kernel](https://github.com/nareshns2004/kvwire-disaggregated-inference-engine/tree/main/kernels) · [custom-cuda-fused-attention-triton](https://github.com/nareshns2004/custom-cuda-fused-attention-triton) | early |
-| eBPF / XDP / DPDK | [kernel-level-ai-traffic-shaper](https://github.com/nareshns2004/kernel-level-ai-traffic-shaper) · [packet path post](https://portfolio-webapp-roan.vercel.app/posts/packet-path.html) | early / write-up |
+| Inference serving | [kvwire](https://github.com/nareshns2004/kvwire-disaggregated-inference-engine) · [KV-cache post](https://portfolio-webapp-roan.vercel.app/posts/kv-cache-transfer.html) | early |
+| GPU kernels (CUDA / Triton) | [kernel lab](https://github.com/nareshns2004/custom-cuda-fused-attention-triton): add, layernorm & tiled matmul in CUDA + Triton, tested vs PyTorch · fused attention + [KV re-layout kernel](https://github.com/nareshns2004/kvwire-disaggregated-inference-engine/tree/main/kernels) land in kvwire | early |
+| eBPF / XDP / DPDK | [packet path post](https://portfolio-webapp-roan.vercel.app/posts/packet-path.html) · [traffic shaper](https://github.com/nareshns2004/kernel-level-ai-traffic-shaper) (paused; its status page lists what doesn’t build yet) | write-up · prototype paused |
 | Secure AI infrastructure | [threat model and controls](#security) · goodput's read-only RCA tier and allowlisted recovery executor | design |
 | Incident triage models | [qwen3-nccl-rca-lora](https://huggingface.co/nareshns2004/qwen3-nccl-rca-lora) (grounded NCCL root-cause analysis, verifiable rewards) · [nccl-incident-rca Space](https://huggingface.co/spaces/nareshns2004/nccl-incident-rca) | model card (no weights yet) |
 | KV-transfer measurements | [rdma-kv-transfer-traces](https://huggingface.co/datasets/nareshns2004/rdma-kv-transfer-traces) · [disagg-kv-explorer Space](https://huggingface.co/spaces/nareshns2004/disagg-kv-explorer) | planned (after kvwire's ceiling sweep) |
@@ -171,8 +169,8 @@ No self-ratings: every row links to the work and states how far along it is.
 
 ## 🛠️ Runnable today
 
-- **[nicprof](https://github.com/nareshns2004/ai-nic-performance-profiler)**: which NIC counter explains which millisecond of training step time. Aligns RDMA/ethtool/SR-IOV counters to each rank’s steps and traces PFC pause back to its origin, so a *victim* port isn’t blamed. `nicprof demo` · 69 tests
-- **[kptk](https://github.com/nareshns2004/kernel-performance-toolkit)**: explains *why* a Linux workload is slow from kernel evidence: run-queue delay, NUMA locality, THP fallback, and `perf_event_open(2)` called directly. Standard library only · 43 tests
+- **[nicprof](https://github.com/nareshns2004/ai-nic-performance-profiler)**: which NIC counter explains which millisecond of training step time. Aligns RDMA/ethtool/SR-IOV counters to each rank’s steps and traces PFC pause back to its origin, so a *victim* port isn’t blamed. Every result so far comes from its fault-injection simulator, including an adversarial mode built to break it (decoy ports, noisy baselines, background tenants) where top-1 attribution drops to 45%; the hardware campaign is scripted. `nicprof demo` · 100 tests
+- **[kptk](https://github.com/nareshns2004/kernel-performance-toolkit)**: explains *why* a Linux workload is slow from kernel evidence: run-queue delay, NUMA locality, THP fallback, and `perf_event_open(2)` called directly. Standard library only · 59 tests
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/pfc-dark.svg">
